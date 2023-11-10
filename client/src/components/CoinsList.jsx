@@ -1,5 +1,6 @@
 import * as coinsAPI from "../APIs/coinsAPI.js";
 import { useState, useEffect } from "react";
+import { numericFormatter } from "react-number-format";
 
 export default function CoinsList() {
     const [coins, setCoins] = useState([]);
@@ -27,6 +28,7 @@ export default function CoinsList() {
                 <div>24h Change</div>
                 <div>MarketCap</div>
                 <div>24h Volume</div>
+                <div>BTC Price</div>
             </div>
             {coins.map((coin) => (
                 <>
@@ -42,10 +44,21 @@ export default function CoinsList() {
                                 <span>{coin.symbol}</span>
                             </div>
                         </div>
-                        <div>${Math.round(coin.price * 100) / 100}</div>
+                        <div>${Number(coin.price).toFixed(2)}</div>
                         <div>{coin.change}%</div>
-                        <div>{coin.marketCap}</div>
-                        <div>{coin["24hVolume"]}</div>
+                        <div>
+                            {numericFormatter(coin.marketCap, {
+                                thousandSeparator: true,
+                                decimalScale: 0,
+                            })}
+                        </div>
+                        <div>
+                            {numericFormatter(coin["24hVolume"], {
+                                thousandSeparator: true,
+                                decimalScale: 0,
+                            })}
+                        </div>
+                        <div>{Number(coin.btcPrice).toFixed(10)}</div>
                     </div>
                 </>
             ))}
