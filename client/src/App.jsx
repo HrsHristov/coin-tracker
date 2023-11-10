@@ -1,5 +1,14 @@
+import CoinsList from "./components/CoinsList.jsx";
+import TableWrapper from "./components/TableWrapper.jsx";
+
 function App() {
-    return <div>Starting point</div>;
+    return (
+        <>
+            <TableWrapper>
+                <CoinsList />
+            </TableWrapper>
+        </>
+    );
 }
 
 export default App;
