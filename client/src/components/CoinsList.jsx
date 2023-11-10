@@ -17,7 +17,7 @@ export default function CoinsList() {
     return (
         <>
             <div className="coin-row">
-                <div>Rank</div>
+                <div>Rank #</div>
                 <div className="d-flex gap-2 coin-icon-conteiner">
                     <div className="coin-icon"></div>
                     <div className="d-flex-center-content gap-2">
@@ -45,7 +45,11 @@ export default function CoinsList() {
                             </div>
                         </div>
                         <div>${Number(coin.price).toFixed(2)}</div>
-                        <div>{coin.change}%</div>
+                        {coin.change > 0 ? (
+                            <div className="up">+{coin.change}%</div>
+                        ) : (
+                            <div className="down">{coin.change}%</div>
+                        )}
                         <div>
                             {numericFormatter(coin.marketCap, {
                                 thousandSeparator: true,
