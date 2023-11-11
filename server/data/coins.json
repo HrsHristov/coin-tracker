@@ -1,0 +1,44 @@
+{
+    "07f260f4-466c-4607-9a33-f823b24f1b4": {
+        "_id": "07f260f4-466c-4607-9a33-f823b24f1b4",
+        "uuid": "Qwsogvtv82FCd",
+        "symbol": "BTC",
+        "name": "Bitcoin"
+    },
+    "07f260f4-466c-4607-9a33-f823b24f2c3": {
+        "_id": "07f260f4-466c-4607-9a33-f823b24f2c3",
+        "uuid": "razxDUgYGNAdQ",
+        "symbol": "ETH",
+        "name": "Ethereum"
+    },
+    "07f260f4-466c-4607-9a33-f823b44f6b4": {
+        "_id": "07f260f4-466c-4607-9a33-f823b44f6b4",
+        "uuid": "HIVsRcGKkPFtW",
+        "symbol": "USDT",
+        "name": "Tether USD"
+    },
+    "07f260f4-466c-4607-9a33-f145b24f1b4": {
+        "_id": "07f260f4-466c-4607-9a33-f145b24f1b4",
+        "uuid": "WcwrkfNI4FUAe",
+        "symbol": "BNB",
+        "name": "BNB"
+    },
+    "07f260f4-466c-4607-9a33-f823b56vgb4": {
+        "_id": "07f260f4-466c-4607-9a33-f823b56vgb4",
+        "uuid": "-l8Mn2pVlRs-p",
+        "symbol": "XRP",
+        "name": "Ripple"
+    },
+    "07f260f4-466c-4607-9a33-f823b24f4h2": {
+        "_id": "07f260f4-466c-4607-9a33-f823b24f4h2",
+        "uuid": "aKzUVe4Hh_CON",
+        "symbol": "USDC",
+        "name": "USDC"
+    },
+    "07f260f4-466c-4607-9a33-f823g56f1b4": {
+        "_id": "07f260f4-466c-4607-9a33-f823g56f1b4",
+        "uuid": "zNZHO_Sjf",
+        "symbol": "SOL",
+        "name": "Solana"
+    }
+}
