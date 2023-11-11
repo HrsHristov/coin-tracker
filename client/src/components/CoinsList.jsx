@@ -5,7 +5,7 @@ import { numericFormatter } from "react-number-format";
 export default function CoinsList() {
     const [coins, setCoins] = useState([]);
 
-    console.log(coins);
+    // console.log(coins);
 
     useEffect(() => {
         coinsAPI
@@ -16,24 +16,10 @@ export default function CoinsList() {
 
     return (
         <>
-            <div className="coin-row">
-                <div>Rank #</div>
-                <div className="d-flex gap-2 coin-icon-conteiner">
-                    <div className="coin-icon"></div>
-                    <div className="d-flex-center-content gap-2">
-                        <span>Name</span>
-                    </div>
-                </div>
-                <div>Price</div>
-                <div>24h Change</div>
-                <div>MarketCap</div>
-                <div>24h Volume</div>
-                <div>BTC Price</div>
-            </div>
             {coins.map((coin) => (
                 <>
                     <div className="divider"></div>
-                    <div className="coin-row">
+                    <div className="coin-row" key={coin.rank}>
                         <div>{coin.rank}</div>
                         <div className="d-flex gap-2 coin-icon-conteiner">
                             <div className="coin-icon">
@@ -56,11 +42,18 @@ export default function CoinsList() {
                                 decimalScale: 0,
                             })}
                         </div>
-                        <div>
-                            {numericFormatter(coin["24hVolume"], {
-                                thousandSeparator: true,
-                                decimalScale: 0,
-                            })}
+                        <div className="d-flex-column gap-1">
+                            <div>
+                                {numericFormatter(coin["24hVolume"], {
+                                    thousandSeparator: true,
+                                    decimalScale: 0,
+                                })}
+                            </div>
+                            <div>
+                                {Math.round(
+                                    Number(coin["24hVolume"] / coin.price)
+                                )}
+                            </div>
                         </div>
                         <div>{Number(coin.btcPrice).toFixed(10)}</div>
                     </div>
