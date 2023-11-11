@@ -1,11 +1,9 @@
 import * as coinsAPI from "../APIs/coinsAPI.js";
 import { useState, useEffect } from "react";
-import { numericFormatter } from "react-number-format";
+import { formatNumber, formatPrice } from "../utils/formatUtils.js";
 
 export default function CoinsList() {
     const [coins, setCoins] = useState([]);
-
-    // console.log(coins);
 
     useEffect(() => {
         coinsAPI
@@ -19,8 +17,8 @@ export default function CoinsList() {
             {coins.map((coin) => (
                 <>
                     <div className="divider"></div>
-                    <div className="coin-row" key={coin.rank}>
-                        <div>{coin.rank}</div>
+                    <div className="coin-row coin-list" key={coin.rank}>
+                        <div className="rank">{coin.rank}</div>
                         <div className="d-flex gap-2 coin-icon-conteiner">
                             <div className="coin-icon">
                                 <img className="img" src={coin.iconUrl} />
@@ -30,32 +28,33 @@ export default function CoinsList() {
                                 <span>{coin.symbol}</span>
                             </div>
                         </div>
-                        <div>${Number(coin.price).toFixed(2)}</div>
+                        <div className="justify-content-end">
+                            {formatPrice(coin.price)}
+                        </div>
                         {coin.change > 0 ? (
-                            <div className="up">+{coin.change}%</div>
+                            <div className="up justify-content-end">
+                                +{coin.change}%
+                            </div>
                         ) : (
-                            <div className="down">{coin.change}%</div>
+                            <div className="down justify-content-end">
+                                {coin.change}%
+                            </div>
                         )}
-                        <div>
-                            {numericFormatter(coin.marketCap, {
-                                thousandSeparator: true,
-                                decimalScale: 0,
-                            })}
+                        <div className="justify-content-end">
+                            ${formatNumber(coin.marketCap)}
                         </div>
-                        <div className="d-flex-column gap-1">
+                        <div className="d-flex-column gap-1 justify-content-end align-items-end">
+                            <div>${formatNumber(coin["24hVolume"])}</div>
                             <div>
-                                {numericFormatter(coin["24hVolume"], {
-                                    thousandSeparator: true,
-                                    decimalScale: 0,
-                                })}
-                            </div>
-                            <div>
-                                {Math.round(
-                                    Number(coin["24hVolume"] / coin.price)
-                                )}
+                                {`${formatNumber(
+                                    coin["24hVolume"],
+                                    coin.price
+                                )} ${coin.symbol}`}
                             </div>
                         </div>
-                        <div>{Number(coin.btcPrice).toFixed(10)}</div>
+                        <div className="justify-content-end">
+                            {Number(coin.btcPrice).toFixed(5)}
+                        </div>
                     </div>
                 </>
             ))}

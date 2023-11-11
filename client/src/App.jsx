@@ -1,39 +1,46 @@
 import CoinsList from "./components/CoinsList.jsx";
-import TableWrapper from "./components/TableWrapper.jsx";
+import MainSection from "./components/MainSection.jsx";
 import Header from "./components/Header.jsx";
 import PortfolioList from "./components/PortfolioList.jsx";
+import { useState } from "react";
+import Form from "./components/Form.jsx";
 
 function App() {
+    const [selectedTable, setselectedTable] = useState("Portfolio");
+
+    function handleSelect(selectedButton) {
+        setselectedTable(selectedButton);
+    }
     return (
         <>
             <Header />
-            <TableWrapper
-                titles={[
-                    "Rank #",
-                    "Name",
-                    "Price",
-                    "24H Change",
-                    "MarketCap",
-                    "24h Volume",
-                    "BTC Price",
-                ]}
+            <button
+                isSelected={selectedTable === "Coins"}
+                onClick={() => handleSelect("Coins")}
             >
-                <CoinsList />
-            </TableWrapper>
+                Coins
+            </button>
+            <button
+                isSelected={selectedTable === "Portfolio"}
+                onClick={() => handleSelect("Portfolio")}
+            >
+                Portfolio
+            </button>
+            <main>
+                {selectedTable === "Coins" && (
+                    <MainSection title="Coins">
+                        <CoinsList />
+                    </MainSection>
+                )}
 
-            <TableWrapper
-                titles={[
-                    "Name",
-                    "Price",
-                    "Change",
-                    "Holdings",
-                    "AvG Buy Price",
-                    "Profit/Loss",
-                    "Actions",
-                ]}
-            >
-                <PortfolioList />
-            </TableWrapper>
+                {selectedTable === "Portfolio" && (
+                    <>
+                        <MainSection title="Portfolio">
+                            <PortfolioList />
+                        </MainSection>
+                    </>
+                )}
+            </main>
         </>
     );
 }
