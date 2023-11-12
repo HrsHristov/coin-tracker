@@ -1,4 +1,5 @@
 import reactImg from "../assets/react-core-concepts.png";
+import Navigation from "./Navigation";
 
 export default function Header() {
     return (
@@ -11,12 +12,7 @@ export default function Header() {
                         <span className="header-title">CointTrack</span>
                     </div>
                 </div>
-                <div className="d-flex gap-4 header-menu">
-                    <div className="header-menu-item active">Coins</div>
-                    <div className="header-menu-item">Portfolio</div>
-                    <div className="header-menu-item">About us</div>
-                    <div className="header-menu-item">Contacts</div>
-                </div>
+                <Navigation />
                 <div className="d-flex gap-2">
                     <button type="submit" className="login-button">
                         Login
