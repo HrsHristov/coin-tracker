@@ -1,7 +1,16 @@
-const baseUrl = "http://localhost:3030/jsonstore/portfolio";
+const baseUrl = "http://localhost:3030/jsonstore/";
 
-export const getAll = async () => {
-    const response = await fetch(baseUrl);
+export const getAllEntries = async () => {
+    const response = await fetch(`${baseUrl}/portfolio`);
+    const result = await response.json();
+
+    const data = Object.values(result);
+
+    return data;
+};
+
+export const getAllSymbols = async () => {
+    const response = await fetch(`${baseUrl}/coins`);
     const result = await response.json();
 
     const data = Object.values(result);

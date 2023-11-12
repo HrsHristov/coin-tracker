@@ -5,18 +5,20 @@ import plus from "../assets/plus.png";
 import bin from "../assets/bin.png";
 import info from "../assets/info.png";
 import Delete from "./Delete.jsx";
+import Form from "./Form.jsx";
 
 export default function PortfolioList() {
     const [entries, setEntries] = useState([]);
 
     useEffect(() => {
         portfolioAPI
-            .getAll()
+            .getAllEntries()
             .then((result) => setEntries(result))
             .catch((err) => console.log(err));
     }, []);
     return (
         <>
+            {}
             {entries.map((entry) => (
                 <>
                     <div className="divider"></div>
@@ -52,7 +54,8 @@ export default function PortfolioList() {
                     </div>
                 </>
             ))}
-            <Delete />
+            {/* <Delete /> */}
+            {/* <Form /> */}
         </>
     );
 }

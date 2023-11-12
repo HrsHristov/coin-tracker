@@ -3,10 +3,9 @@ import MainSection from "./components/MainSection.jsx";
 import Header from "./components/Header.jsx";
 import PortfolioList from "./components/PortfolioList.jsx";
 import { useState } from "react";
-import Form from "./components/Form.jsx";
 
 function App() {
-    const [selectedTable, setselectedTable] = useState("Portfolio");
+    const [selectedTable, setselectedTable] = useState("Coins");
 
     function handleSelect(selectedButton) {
         setselectedTable(selectedButton);
@@ -14,7 +13,7 @@ function App() {
     return (
         <>
             <Header />
-            <button
+            {/* <button
                 isSelected={selectedTable === "Coins"}
                 onClick={() => handleSelect("Coins")}
             >
@@ -25,20 +24,13 @@ function App() {
                 onClick={() => handleSelect("Portfolio")}
             >
                 Portfolio
-            </button>
+            </button> */}
             <main>
                 {selectedTable === "Coins" && (
                     <MainSection title="Coins">
-                        <CoinsList />
+                        {/* <CoinsList /> */}
+                        <PortfolioList />
                     </MainSection>
-                )}
-
-                {selectedTable === "Portfolio" && (
-                    <>
-                        <MainSection title="Portfolio">
-                            <PortfolioList />
-                        </MainSection>
-                    </>
                 )}
             </main>
         </>

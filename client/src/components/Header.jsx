@@ -12,10 +12,10 @@ export default function Header() {
                     </div>
                 </div>
                 <div className="d-flex gap-4 header-menu">
-                    <div>Coins</div>
-                    <div>Portfolio</div>
-                    <div>About us</div>
-                    <div>Contacts</div>
+                    <div className="header-menu-item active">Coins</div>
+                    <div className="header-menu-item">Portfolio</div>
+                    <div className="header-menu-item">About us</div>
+                    <div className="header-menu-item">Contacts</div>
                 </div>
                 <div className="d-flex gap-2">
                     <button type="submit" className="login-button">
