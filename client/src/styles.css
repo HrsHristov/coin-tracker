@@ -51,10 +51,6 @@ button {
     border: 1px solid #3861fb;
 }
 
-.coins-content-head > div {
-    justify-content: end;
-}
-
 .d-flex {
     display: flex;
 }
@@ -82,6 +78,18 @@ button {
     padding: 0rem 1rem;
     row-gap: 1.5rem;
     column-gap: 1.5rem;
+}
+
+.coin-row {
+    > div:not(:first-child) {
+        justify-content: end;
+    }
+}
+
+.coin-row.coin-list {
+    > div:nth-of-type(2) {
+        justify-content: start !important;
+    }
 }
 
 .coin-row > div {
@@ -127,7 +135,14 @@ button {
     color: green;
 }
 
-.coin-icon-conteiner {
+.coins.coins-content-head {
+    > div:not(:first-child) {
+        justify-content: end;
+    }
+}
+
+.coin-icon-conteiner,
+.coin-name-conteiner {
     min-width: 15rem;
 }
 
@@ -275,8 +290,8 @@ button {
 .button-action {
     border: 0;
     background: transparent;
-    width: 2.125ren;
-    height: 2.125rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 .secondary-button {
@@ -306,4 +321,20 @@ button {
     background-color: rgb(23, 23, 26);
     border-radius: 16px;
     color: white;
+}
+
+.modal-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.d-flex-between-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.secondary-text-color {
+    color: rgb(161, 167, 173);
 }
