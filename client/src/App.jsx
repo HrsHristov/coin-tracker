@@ -34,32 +34,6 @@ function App() {
             <Footer />
         </>
     );
-    // return (
-    //     <>
-    //         <Header />
-    //         {/* <button
-    //             isSelected={selectedTable === "Coins"}
-    //             onClick={() => handleSelect("Coins")}
-    //         >
-    //             Coins
-    //         </button>
-    //         <button
-    //             isSelected={selectedTable === "Portfolio"}
-    //             onClick={() => handleSelect("Portfolio")}
-    //         >
-    //             Portfolio
-    //         </button> */}
-    //         <main>
-    //             {selectedTable === "Portfolio" && (
-    //                 <MainSection title="Portfolio">
-    //                     {/* <CoinsList /> */}
-    //                     <PortfolioList />
-    //                 </MainSection>
-    //             )}
-    //         </main>
-    //         <Footer />
-    //     </>
-    // );
 }
 
 export default App;

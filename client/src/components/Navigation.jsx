@@ -4,16 +4,16 @@ export default function Navigation() {
     return (
         <>
             <div className="d-flex gap-4 header-menu">
-                <Link to="/Coins">
+                <Link to="/coins">
                     <div className="header-menu-item active">Coins</div>
                 </Link>
-                <Link to="/Portfolio">
+                <Link to="/portfolio">
                     <div className="header-menu-item">Portfolio</div>
                 </Link>
-                <Link to="/Coins">
+                <Link to="/aboutus">
                     <div className="header-menu-item">About us</div>
                 </Link>
-                <Link to="/Coins">
+                <Link to="/contants">
                     <div className="header-menu-item">Contacts</div>
                 </Link>
             </div>

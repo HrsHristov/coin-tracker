@@ -9,21 +9,34 @@ export const getAllEntries = async () => {
     return data;
 };
 
-export const getAllSymbols = async () => {
-    const response = await fetch(`${baseUrl}/coins`);
-    const result = await response.json();
-
-    const data = Object.values(result);
-
-    return data;
-};
-
-// export const getOne = async (userId) => {
-//     const response = await fetch(`${baseUrl}/${userId}`);
+// export const getOneCoin = async (uuid) => {
+//     const response = await fetch(
+//         "https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history"
+//     );
 //     const result = await response.json();
 
 //     return result;
 // };
+
+export const getCurrentPrice = async (uuid) => {
+    const url = `https://coinranking1.p.rapidapi.com/coin/${uuid}/price`;
+    const options = {
+        method: "GET",
+        headers: {
+            "X-RapidAPI-Key":
+                "bc00d31b19mshd31ac5eb9c9811ap1bcc72jsn4e9b00fd6833",
+            "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+        },
+    };
+
+    const response = await fetch(url, options);
+    const result = await response.json();
+    const data = Object.values(result.data);
+
+    console.log(data);
+
+    return data;
+};
 
 // export const create = async (data) => {
 //     const body = {
