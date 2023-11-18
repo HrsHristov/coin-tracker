@@ -1,13 +1,49 @@
 {
-    "07f260f4-466c-4607-9a33-f7273b24f1b4": {
-        "_id": "07f260f4-466c-4607-9a33-f7273b24f1b4",
+    "06f233d4-555g-4070-9a43-f7273b35f1b4": {
+        "_id": "06f233d4-555g-4070-9a43-f7273b35f1b4",
         "type": "Buy",
         "uuid": "Qwsogvtv82FCd",
         "name": "Bitcoin",
         "symbol": "BTC",
         "iconUrl": "https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg",
-        "price": 25000.52,
+        "price": 36548.52,
         "quantity": 1,
+        "fee": 3,
+        "note": "Bought the dip"
+    },
+    "02s370f4-466c-4607-9a33-f7273b24c2g5": {
+        "_id": "02s370f4-466c-4607-9a33-f7273b24c2g5",
+        "type": "Buy",
+        "uuid": "razxDUgYGNAdQ",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "iconUrl": "https://cdn.coinranking.com/rk4RKHOuW/eth.svg",
+        "price": 1941.02,
+        "quantity": 3,
+        "fee": 3,
+        "note": "Bought the dip"
+    },
+    "07f260f4-466c-4607-9a33-f7273b24f1b4": {
+        "_id": "07f260f4-466c-4607-9a33-f7273b24f1b4",
+        "type": "Buy",
+        "uuid": "-l8Mn2pVlRs-p",
+        "name": "XRP",
+        "symbol": "XRP",
+        "iconUrl": "https://cdn.coinranking.com/B1oPuTyfX/xrp.svg",
+        "price": 0.52,
+        "quantity": 1500,
+        "fee": 3,
+        "note": "Bought the dip"
+    },
+    "03f220f4-466c-4531-9a23-f5263b24f6b4": {
+        "_id": "03f220f4-466c-4531-9a23-f5263b24f6b4",
+        "type": "Buy",
+        "uuid": "a91GCGd_u96cF",
+        "name": "Dogecoin",
+        "symbol": "DOGE",
+        "iconUrl": "https://cdn.coinranking.com/H1arXIuOZ/doge.svg",
+        "price": 0.15,
+        "quantity": 4000,
         "fee": 3,
         "note": "Bought the dip"
     }
