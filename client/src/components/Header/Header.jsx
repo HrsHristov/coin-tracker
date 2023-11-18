@@ -1,5 +1,5 @@
-import reactImg from "../assets/react-core-concepts.png";
-import Navigation from "./Navigation";
+import reactImg from "../../assets/react-core-concepts.png";
+import Navigation from "../Navigation/Navigation";
 
 export default function Header() {
     return (
