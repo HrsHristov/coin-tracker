@@ -18,8 +18,8 @@ export const getAllEntries = async () => {
 //     return result;
 // };
 
-export const getCurrentPrice = async (uuid) => {
-    const url = `https://coinranking1.p.rapidapi.com/coin/${uuid}/price`;
+export const getCoinInfo = async (uuid) => {
+    const url = `https://coinranking1.p.rapidapi.com/coin/${uuid}/`;
     const options = {
         method: "GET",
         headers: {
@@ -33,7 +33,7 @@ export const getCurrentPrice = async (uuid) => {
     const result = await response.json();
     const data = Object.values(result.data);
 
-    console.log(data);
+    // console.log(data);
 
     return data;
 };
