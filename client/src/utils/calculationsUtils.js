@@ -13,7 +13,7 @@ export const calculatePNL = (price, buyPrice, quanity) => {
     return formatPrice(pnl.toString());
 };
 
-export const calculatePNLPercentage = (price, buyPrice, quanity) => {
+export const calculatePNLPercentage = (price, buyPrice) => {
     const pnl = 100 * (price / buyPrice) - 100;
 
     return formatPrice(pnl.toString());
