@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import * as portfolioAPI from "../APIs/portfolioAPI.js";
+import * as portfolioAPI from "../../APIs/portfolioAPI.js";
 
-export default function Form() {
+export default function CreateEntryModal({ onClose, onCreate }) {
     const [symbols, setSymbols] = useState([]);
 
     useEffect(() => {
@@ -46,7 +46,9 @@ export default function Form() {
                                 <div className="mb-4">
                                     <select className="coins-select">
                                         {symbols.map((symbol) => (
-                                            <option>{`${symbol.name} (${symbol.symbol})`}</option>
+                                            <option
+                                                key={symbol.name}
+                                            >{`${symbol.name} (${symbol.symbol})`}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -69,14 +71,14 @@ export default function Form() {
                                         />
                                     </div>
                                 </div>
-                                <div className="mb-4">
+                                {/* <div className="mb-4">
                                     <input
                                         type="date"
                                         id="buyCoinsCalendar"
                                         className="coins-calendar"
                                         name="buyCoinsCalendar"
                                     />
-                                </div>
+                                </div> */}
                                 <div className="mb-4">
                                     <div>Notes</div>
                                     <textarea className="notes"></textarea>
@@ -86,7 +88,11 @@ export default function Form() {
                                     <div className="fw-bold">$0</div>
                                 </div>
                                 <div className="d-flex-center-content">
-                                    <button className="primary-button">
+                                    <button
+                                        className="primary-button"
+                                        type="submit"
+                                        onClick={onCreate}
+                                    >
                                         Add transaction
                                     </button>
                                 </div>
