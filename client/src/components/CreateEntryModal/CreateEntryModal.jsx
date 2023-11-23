@@ -11,11 +11,22 @@ export default function CreateEntryModal({ onClose, onCreate }) {
             .catch((err) => console.log(err));
     }, []);
 
+    const createEntrySubmitHandler = (e) => {
+        e.preventDefault();
+
+        const entryData = Object.fromEntries(new FormData(e.currentTarget));
+
+        console.log(entryData);
+    };
+
     return (
         <div className="app-modal">
-            <div className="app-modal-content d-flex-column gap-4 add-modal-position">
+            <form
+                className="app-modal-content d-flex-column gap-4 add-modal-position"
+                onSubmit={createEntrySubmitHandler}
+            >
                 <div className="container">
-                    <ul className="nav nav-tabs d-flex" id="myTab">
+                    {/* <ul className="nav nav-tabs d-flex" id="myTab">
                         <li className="nav-item">
                             <button
                                 className="nav-link active"
@@ -38,13 +49,16 @@ export default function CreateEntryModal({ onClose, onCreate }) {
                                 Sell
                             </button>
                         </li>
-                    </ul>
+                    </ul> */}
 
                     <div className="tab-content" id="myTabContent">
                         <div className="tab-pane fade show active" id="buy">
                             <div className="buy-tab">
                                 <div className="mb-4">
-                                    <select className="coins-select">
+                                    <select
+                                        className="coins-select"
+                                        name="coinName"
+                                    >
                                         {symbols.map((symbol) => (
                                             <option
                                                 key={symbol.name}
@@ -59,6 +73,7 @@ export default function CreateEntryModal({ onClose, onCreate }) {
                                         <input
                                             className="coins-input"
                                             type="number"
+                                            name="quanity"
                                             value="0.00"
                                         />
                                     </div>
@@ -67,6 +82,7 @@ export default function CreateEntryModal({ onClose, onCreate }) {
                                         <input
                                             className="coins-input"
                                             type="number"
+                                            name="pricePer"
                                             value="9.2119"
                                         />
                                     </div>
@@ -98,12 +114,12 @@ export default function CreateEntryModal({ onClose, onCreate }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="tab-pane fade" id="sell">
+                        {/* <div className="tab-pane fade" id="sell">
                             Sell Content
-                        </div>
+                        </div> */}
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     );
 }

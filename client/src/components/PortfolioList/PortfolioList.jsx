@@ -5,7 +5,6 @@ import ListWrapper from "../ListWrapper/ListWrapper.jsx";
 import ListHeader from "../ListHeader/ListHeader.jsx";
 import PortfolioListRow from "../PortfolioListRow/PortfolioListRow.jsx";
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
-import CreateEntryModal from "../CreateEntryModal/CreateEntryModal.jsx";
 import EntryInfoModal from "../EntryInfoModal/EntryInfoModal.jsx";
 
 export default function PortfolioList() {

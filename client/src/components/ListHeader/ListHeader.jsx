@@ -14,7 +14,6 @@ const PORTFOLIO_TITLES = [
     "Profit/Loss",
     "Actions",
 ];
-
 export default function ListHeader({ title }) {
     let header;
 

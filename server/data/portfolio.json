@@ -7,7 +7,8 @@
         "name": "Bitcoin",
         "symbol": "BTC",
         "iconUrl": "https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg",
-        "price": 17536.52,
+        "buyPrice": 17536.52,
+        "sellPrice": 31505.32,
         "quantity": 1,
         "fee": 0.5,
         "note": "Bought the dip"
@@ -20,7 +21,8 @@
         "name": "Ethereum",
         "symbol": "ETH",
         "iconUrl": "https://cdn.coinranking.com/rk4RKHOuW/eth.svg",
-        "price": 1523.02,
+        "buyPrice": 1523.02,
+        "sellPrice": 1320.32,
         "quantity": 3,
         "fee": 3,
         "note": "DCA"
@@ -33,7 +35,8 @@
         "name": "XRP",
         "symbol": "XRP",
         "iconUrl": "https://cdn.coinranking.com/B1oPuTyfX/xrp.svg",
-        "price": 0.73,
+        "buyPrice": 0.73,
+        "sellPrice": 0.83,
         "quantity": 1500,
         "fee": 1,
         "note": "Bought the top. Hooray"
@@ -46,7 +49,8 @@
         "name": "Dogecoin",
         "symbol": "DOGE",
         "iconUrl": "https://cdn.coinranking.com/H1arXIuOZ/doge.svg",
-        "price": 0.15,
+        "buyPrice": 0.15,
+        "sellPrice": 0.16,
         "quantity": 4000,
         "fee": 1.2,
         "note": "Bought the dip"

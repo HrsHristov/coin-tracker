@@ -9,6 +9,7 @@ import {
     calculatePNL,
     calculatePNLPercentage,
 } from "../../utils/calculationsUtils.js";
+
 import * as coinsAPI from "../../APIs/coinsAPI.js";
 
 export default function PortfolioListRow({
@@ -17,12 +18,13 @@ export default function PortfolioListRow({
     name,
     symbol,
     iconUrl,
-    price,
+    buyPrice,
+    sellPrice,
     quantity,
     onDeleteClick,
     onInfoClick,
 }) {
-    const [coinInfo, setCoinInfo] = useState({});
+    const [coinInfo, setCoinInfo] = useState(null);
 
     console.log(coinInfo);
 
@@ -31,7 +33,7 @@ export default function PortfolioListRow({
             .getCoinInfo(uuid)
             .then((result) => setCoinInfo(result))
             .catch((err) => console.log(err));
-    }, [uuid]);
+    }, []);
 
     const infoClickHandler = () => {
         onInfoClick(_id);
@@ -40,6 +42,13 @@ export default function PortfolioListRow({
     const deleteClickHandler = () => {
         onDeleteClick(_id);
     };
+
+    if (!coinInfo) {
+        return <div>loading....</div>;
+    }
+
+    const currentPrice = coinInfo.data.coin.price;
+    const priceChange = coinInfo.data.coin.change;
 
     return (
         <>
@@ -54,44 +63,29 @@ export default function PortfolioListRow({
                         <span>{symbol}</span>
                     </div>
                 </div>
-                <div>${formatPrice(coinInfo.data.coin.price.toString())}</div>
+                <div>${formatPrice(currentPrice.toString())}</div>
                 {coinInfo.data.coin.change > 0 ? (
-                    <div className="up">+{coinInfo.data.coin.change}%</div>
+                    <div className="up">+{priceChange}%</div>
                 ) : (
-                    <div className="down">{coinInfo.data.coin.change}%</div>
+                    <div className="down">{priceChange}%</div>
                 )}
                 <div className="d-flex-column gap-1 text-end">
-                    <div>${calculateHoldings(price, quantity)}</div>
+                    <div>${calculateHoldings(buyPrice, quantity)}</div>
                     <div>
                         {quantity} {symbol}
                     </div>
                 </div>
-                <div>${formatPrice(price.toString())}</div>
+                <div>${formatPrice(buyPrice.toString())}</div>
                 <div className="d-flex-column gap-1 text-end">
-                    <div>
-                        $
-                        {calculatePNL(
-                            coinInfo.data.coin.price,
-                            price,
-                            quantity
-                        )}
-                    </div>
+                    <div>${calculatePNL(currentPrice, buyPrice, quantity)}</div>
 
-                    {coinInfo.data.coin.price > price ? (
+                    {currentPrice > buyPrice ? (
                         <div className="up">
-                            {calculatePNLPercentage(
-                                coinInfo.data.coin.price,
-                                price
-                            )}
-                            %
+                            {calculatePNLPercentage(currentPrice, buyPrice)}%
                         </div>
                     ) : (
                         <div className="down">
-                            {calculatePNLPercentage(
-                                coinInfo.data.coin.price,
-                                price
-                            )}
-                            %
+                            {calculatePNLPercentage(currentPrice, buyPrice)}%
                         </div>
                     )}
                 </div>

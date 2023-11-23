@@ -10,6 +10,9 @@ export default function Navigation() {
                 <Link to="/portfolio">
                     <div className="header-menu-item">Portfolio</div>
                 </Link>
+                <Link to="/add">
+                    <div className="header-menu-item">Add Entry</div>
+                </Link>
                 <Link to="/aboutus">
                     <div className="header-menu-item">About us</div>
                 </Link>
