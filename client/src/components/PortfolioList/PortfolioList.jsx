@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import ListWrapper from "../ListWrapper/ListWrapper.jsx";
 import ListHeader from "../ListHeader/ListHeader.jsx";
 import PortfolioListRow from "../PortfolioListRow/PortfolioListRow.jsx";
-import DeleteModal from "../DeleteModal/DeleteModal.jsx";
-import EntryInfoModal from "../EntryInfoModal/EntryInfoModal.jsx";
+import DeleteEntryModal from "../Modals/DeleteEntryModal/DeleteEntryModal.jsx";
+import EntryInfoModal from "../Modals/EntryInfoModal/EntryInfoModal.jsx";
+import Button from "../Button/Button.jsx";
 
 export default function PortfolioList() {
     const [entries, setEntries] = useState([]);
@@ -43,7 +44,7 @@ export default function PortfolioList() {
     return (
         <>
             {showDelete && (
-                <DeleteModal
+                <DeleteEntryModal
                     onClose={() => setShowDelete(false)}
                     onDelete={deleteEntryHandler}
                 />
@@ -56,20 +57,20 @@ export default function PortfolioList() {
                 />
             )}
 
-            <button type="submit" className="primary-button px-5">
-                Add Entry
-            </button>
             <ListWrapper>
-                <ListHeader title="portfolio" />
+                <Button primary>Add Entry</Button>
+                <table>
+                    <ListHeader title="portfolio" />
 
-                {entries.map((entry) => (
-                    <PortfolioListRow
-                        key={entry.uuid}
-                        {...entry}
-                        onInfoClick={entryInfoClickHandler}
-                        onDeleteClick={deleteEntryClickHandler}
-                    />
-                ))}
+                    {entries.map((entry) => (
+                        <PortfolioListRow
+                            key={entry.uuid}
+                            {...entry}
+                            onInfoClick={entryInfoClickHandler}
+                            onDeleteClick={deleteEntryClickHandler}
+                        />
+                    ))}
+                </table>
             </ListWrapper>
         </>
     );

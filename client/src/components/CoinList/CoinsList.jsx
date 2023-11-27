@@ -17,15 +17,16 @@ export default function CoinsList() {
 
     return (
         <ListWrapper>
-            <ListHeader title="coins" />
-
-            {coins.map((coin) => (
-                <CoinListRow
-                    key={coin.rank}
-                    {...coin}
-                    volume={coin["24hVolume"]}
-                />
-            ))}
+            <table>
+                <ListHeader title="coins" />
+                {coins.map((coin) => (
+                    <CoinListRow
+                        key={coin.rank}
+                        {...coin}
+                        volume={coin["24hVolume"]}
+                    />
+                ))}
+            </table>
         </ListWrapper>
     );
 }

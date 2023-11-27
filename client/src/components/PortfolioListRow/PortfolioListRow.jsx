@@ -11,6 +11,7 @@ import {
 } from "../../utils/calculationsUtils.js";
 
 import * as coinsAPI from "../../APIs/coinsAPI.js";
+import Button from "../Button/Button.jsx";
 
 export default function PortfolioListRow({
     _id,
@@ -49,6 +50,57 @@ export default function PortfolioListRow({
 
     const currentPrice = coinInfo.data.coin.price;
     const priceChange = coinInfo.data.coin.change;
+
+    return (
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <div className="coin-icon">
+                        <img className="img" src={iconUrl} />
+                        <span>{name}</span>
+                        <span>{symbol}</span>
+                    </div>
+                </td>
+                <td>${formatPrice(currentPrice.toString())}</td>
+                <td>
+                    {coinInfo.data.coin.change > 0 ? (
+                        <div className="up">+{priceChange}%</div>
+                    ) : (
+                        <div className="down">{priceChange}%</div>
+                    )}
+                </td>
+                <td>
+                    <div>${calculateHoldings(buyPrice, quantity)}</div>
+                    <div>
+                        {quantity} {symbol}
+                    </div>
+                </td>
+                <td>${formatPrice(buyPrice.toString())}</td>
+                <td>
+                    <div>${calculatePNL(currentPrice, buyPrice, quantity)}</div>
+
+                    {currentPrice > buyPrice ? (
+                        <div className="up">
+                            {calculatePNLPercentage(currentPrice, buyPrice)}%
+                        </div>
+                    ) : (
+                        <div className="down">
+                            {calculatePNLPercentage(currentPrice, buyPrice)}%
+                        </div>
+                    )}
+                </td>
+                <td>
+                    <Button primary onClick={infoClickHandler}>
+                        Info
+                    </Button>
+                    <Button primary onClick={deleteClickHandler}>
+                        Del
+                    </Button>
+                </td>
+            </tr>
+        </tbody>
+    );
 
     return (
         <>
