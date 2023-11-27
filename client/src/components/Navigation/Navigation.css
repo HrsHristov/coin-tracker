@@ -1,0 +1,13 @@
+.header-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.header-nav__link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-nav__link:hover {
+    color: rgb(0, 233, 249);
+}

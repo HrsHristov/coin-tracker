@@ -4,19 +4,21 @@ import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import CoinsList from "./components/CoinList/CoinsList.jsx";
 import PortfolioList from "./components/PortfolioList/PortfolioList.jsx";
-import CreateEntryModal from "./components/CreateEntryModal/CreateEntryModal.jsx";
+import Login from "./components/Login/Login.jsx";
+import Register from "./components/Register/Register.jsx";
+import CoinDetails from "./components/CoinDetails/CoinDetails.jsx";
 
 function App() {
     return (
         <>
             <Header />
-
             <Routes>
                 <Route path="/coins" element={<CoinsList />} />
                 <Route path="/portfolio" element={<PortfolioList />} />
-                <Route path="/add" element={<CreateEntryModal />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/details" element={<CoinDetails />} />
             </Routes>
-
             <Footer />
         </>
     );

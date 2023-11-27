@@ -1,25 +1,21 @@
 import { Link } from "react-router-dom";
+import "./Navigation.css";
+
+// TODO - Add structure
+// Use router name
 
 export default function Navigation() {
     return (
-        <>
-            <div className="d-flex gap-4 header-menu">
-                <Link to="/coins">
-                    <div className="header-menu-item active">Coins</div>
-                </Link>
-                <Link to="/portfolio">
-                    <div className="header-menu-item">Portfolio</div>
-                </Link>
-                <Link to="/add">
-                    <div className="header-menu-item">Add Entry</div>
-                </Link>
-                <Link to="/aboutus">
-                    <div className="header-menu-item">About us</div>
-                </Link>
-                <Link to="/contants">
-                    <div className="header-menu-item">Contacts</div>
-                </Link>
-            </div>
-        </>
+        <nav className="header-nav">
+            <Link to="/coins" className="header-nav__link">
+                Coins
+            </Link>
+            <Link to="/portfolio" className="header-nav__link">
+                Portfolio
+            </Link>
+            <Link to="/details" className="header-nav__link">
+                Details
+            </Link>
+        </nav>
     );
 }
