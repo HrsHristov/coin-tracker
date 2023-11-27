@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import * as portfolioService from "../../servies/portfolioService.js";
 
-import ListWrapper from "../ListWrapper/ListWrapper.jsx";
 import ListHeader from "../ListHeader/ListHeader.jsx";
 import PortfolioListRow from "../PortfolioListRow/PortfolioListRow.jsx";
 import DeleteEntryModal from "../Modals/DeleteEntryModal/DeleteEntryModal.jsx";
@@ -58,21 +57,19 @@ export default function PortfolioList() {
                 />
             )}
 
-            <ListWrapper>
-                <Button primary>Add Entry</Button>
-                <table>
-                    <ListHeader title="portfolio" />
+            <Button primary>Add Entry</Button>
+            <table>
+                <ListHeader title="portfolio" />
 
-                    {entries.map((entry) => (
-                        <PortfolioListRow
-                            key={entry.uuid}
-                            {...entry}
-                            onInfoClick={entryInfoClickHandler}
-                            onDeleteClick={deleteEntryClickHandler}
-                        />
-                    ))}
-                </table>
-            </ListWrapper>
+                {entries.map((entry) => (
+                    <PortfolioListRow
+                        key={entry.uuid}
+                        {...entry}
+                        onInfoClick={entryInfoClickHandler}
+                        onDeleteClick={deleteEntryClickHandler}
+                    />
+                ))}
+            </table>
         </>
     );
 }
