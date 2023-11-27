@@ -1,4 +1,4 @@
-import * as coinsAPI from "../../APIs/coinsAPI.js";
+import * as coinsService from "../../servies/coinsService.js";
 import { useState, useEffect } from "react";
 
 import ListWrapper from "../ListWrapper/ListWrapper.jsx";
@@ -9,7 +9,7 @@ export default function CoinsList() {
     const [coins, setCoins] = useState([]);
 
     useEffect(() => {
-        coinsAPI
+        coinsService
             .getAll()
             .then((result) => setCoins(result))
             .catch((err) => console.log(err));

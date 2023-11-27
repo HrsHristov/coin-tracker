@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { formatNumber, formatPrice } from "../../utils/formatUtils.js";
 import Button from "../Button/Button.jsx";
 
@@ -11,7 +13,13 @@ export default function CoinListRow({
     marketCap,
     volume,
     btcPrice,
+    uuid,
 }) {
+    const priceFormatted = formatPrice(price);
+    const marketCapFormatted = formatNumber(marketCap);
+    const volumeFormatted = formatNumber(volume);
+    const btcPriceFormatted = Number(btcPrice).toFixed(5);
+
     return (
         <tbody>
             <tr>
@@ -19,11 +27,12 @@ export default function CoinListRow({
                 <td>
                     <div className="coin-icon">
                         <img className="img" src={iconUrl} />
-                        <span>{name}</span>
-                        <span>{symbol}</span>
+                        <span>
+                            {name} ({symbol})
+                        </span>
                     </div>
                 </td>
-                <td>{formatPrice(price)}</td>
+                <td>{priceFormatted}</td>
                 <td>
                     {change > 0 ? (
                         <div className="up">+{change}%</div>
@@ -31,11 +40,13 @@ export default function CoinListRow({
                         <div className="down">{change}%</div>
                     )}
                 </td>
-                <td>${formatNumber(marketCap)}</td>
-                <td>${formatNumber(volume)}</td>
-                <td>{Number(btcPrice).toFixed(5)}</td>
+                <td>${marketCapFormatted}</td>
+                <td>${volumeFormatted}</td>
+                <td>{btcPriceFormatted}</td>
                 <td>
-                    <Button primary>Details</Button>
+                    <Link to={`/coins/${uuid}`}>
+                        <Button primary>Details</Button>
+                    </Link>
                 </td>
             </tr>
         </tbody>
