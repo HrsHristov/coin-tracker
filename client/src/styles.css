@@ -294,13 +294,13 @@ button {
     height: 2rem;
 }
 
-.secondary-button {
+/* .secondary-button {
     background-color: rgb(50, 53, 70);
     color: white;
     border: 0;
     padding: 0px 24px;
     border-radius: 8px;
-}
+} */
 
 .app-modal {
     position: fixed;
