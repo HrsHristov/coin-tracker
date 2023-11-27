@@ -1,4 +1,6 @@
 const COINS_TITLES = [
+    "Rank #",
+    "Name",
     "Price",
     "24H Change",
     "MarketCap",
@@ -7,6 +9,8 @@ const COINS_TITLES = [
 ];
 
 const PORTFOLIO_TITLES = [
+    "Entry #",
+    "Name",
     "Price",
     "Change",
     "Holdings",
@@ -19,28 +23,46 @@ export default function ListHeader({ title }) {
 
     if (title === "coins") {
         header = (
-            <div className="coin-row coins-content-head">
-                <div className="rank">#</div>
-                <div className="d-flex gap-2 coin-icon-conteiner justify-content-start">
-                    Name
-                </div>
+            <tr>
                 {COINS_TITLES.map((title) => (
-                    <div key={title}>{title}</div>
+                    <th key={title}>{title}</th>
                 ))}
-            </div>
+            </tr>
         );
     } else {
         header = (
-            <div className="coins coin-row coins-content-head">
-                <div className="d-flex gap-2 coin-name-conteiner justify-content-start">
-                    Name
-                </div>
+            <tr>
                 {PORTFOLIO_TITLES.map((title) => (
-                    <div key={title}>{title}</div>
+                    <th key={title}>{title}</th>
                 ))}
-            </div>
+            </tr>
         );
     }
+
+    // if (title === "coins") {
+    //     header = (
+    //         <div className="coin-row coins-content-head">
+    //             <div className="rank">#</div>
+    //             <div className="d-flex gap-2 coin-icon-conteiner justify-content-start">
+    //                 Name
+    //             </div>
+    //             {COINS_TITLES.map((title) => (
+    //                 <div key={title}>{title}</div>
+    //             ))}
+    //         </div>
+    //     );
+    // } else {
+    //     header = (
+    //         <div className="coins coin-row coins-content-head">
+    //             <div className="d-flex gap-2 coin-name-conteiner justify-content-start">
+    //                 Name
+    //             </div>
+    //             {PORTFOLIO_TITLES.map((title) => (
+    //                 <div key={title}>{title}</div>
+    //             ))}
+    //         </div>
+    //     );
+    // }
 
     return header;
 }
