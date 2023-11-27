@@ -1,5 +1,6 @@
-import * as portfolioAPI from "../../APIs/portfolioAPI.js";
 import { useState, useEffect } from "react";
+
+import * as portfolioService from "../../servies/portfolioService.js";
 
 import ListWrapper from "../ListWrapper/ListWrapper.jsx";
 import ListHeader from "../ListHeader/ListHeader.jsx";
@@ -15,7 +16,7 @@ export default function PortfolioList() {
     const [showInfo, setShowInfo] = useState(false);
 
     useEffect(() => {
-        portfolioAPI
+        portfolioService
             .getAllEntries()
             .then((result) => setEntries(result))
             .catch((err) => console.log(err));

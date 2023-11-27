@@ -10,7 +10,7 @@ import {
     calculatePNLPercentage,
 } from "../../utils/calculationsUtils.js";
 
-import * as coinsAPI from "../../APIs/coinsAPI.js";
+import * as coinsService from "../../servies/coinsService.js";
 import Button from "../Button/Button.jsx";
 
 export default function PortfolioListRow({
@@ -30,7 +30,7 @@ export default function PortfolioListRow({
     console.log(coinInfo);
 
     useEffect(() => {
-        coinsAPI
+        coinsService
             .getCoinInfo(uuid)
             .then((result) => setCoinInfo(result))
             .catch((err) => console.log(err));
