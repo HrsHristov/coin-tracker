@@ -1,0 +1,30 @@
+.button {
+    color: rgb(13, 1, 51);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    line-height: 1rem;
+}
+
+.button--primary {
+    background-color: rgb(0, 233, 249);
+    border: 1px solid rgb(0, 233, 249);
+}
+
+.button--primary:hover {
+    opacity: 0.75;
+}
+
+.button--secondary {
+    background-color: rgb(210, 236, 238);
+    border: 1px solid rgb(210, 236, 238);
+}
+
+.button--secondary:hover {
+    opacity: 0.75;
+}
+
+.button--block {
+    display: block;
+    width: 100%;
+}
