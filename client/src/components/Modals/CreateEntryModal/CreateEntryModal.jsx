@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
-import * as portfolioAPI from "../../../APIs/portfolioAPI.js";
+import * as portfolioService from "../../../servies/portfolioService";
 
 import ModalWrapper from "../ModalWrapper";
 import Button from "../../Button/Button";
+import Input from "../../Input/Input";
+import Select from "../../Select/Select";
+import Calendar from "../../Calendar/Calendar";
 
 export default function CreateEntryModal({ onClose, onCreate }) {
     const [symbols, setSymbols] = useState([]);
 
     useEffect(() => {
-        portfolioAPI
+        portfolioService
             .getAllSymbols()
             .then((result) => setSymbols(result))
             .catch((err) => console.log(err));
@@ -26,40 +29,40 @@ export default function CreateEntryModal({ onClose, onCreate }) {
         <ModalWrapper title="Add Transaction">
             <form>
                 <div>
-                    <select>
-                        {symbols.map((symbol) => (
-                            <option
-                                key={symbol.name}
-                            >{`${symbol.name} (${symbol.symbol})`}</option>
-                        ))}
-                    </select>
+                    <Select data={symbols} />
                 </div>
-                <label htmlFor="quantity">Quantity</label>
-                <input
+
+                <Input
+                    labelName="Quantity"
                     type="number"
-                    id="quantity"
                     name="quantity"
-                    placeholder="0.00"
+                    placeholder="0"
+                    id="quantity"
                 />
 
-                <label htmlFor="pricePer">Price: </label>
-                <input
+                <Input
+                    labelName="Price"
                     type="text"
-                    id="pricePer"
                     name="pricePer"
                     placeholder="0.00"
+                    id="pricePer"
                 />
 
-                <label htmlFor="note">Note: </label>
-                <input
+                <Input
+                    labelName="Note"
                     type="text"
-                    id="note"
                     name="note"
                     placeholder="Write your note here..."
+                    id="note"
                 />
 
-                <label htmlFor="calendar">Transaction Date: </label>
-                <input type="date" id="calendar" name="buyCoinsCalendar" />
+                <Calendar
+                    labelName="Transaction Date"
+                    type="date"
+                    name="calendar"
+                    placeholder="Write your note here..."
+                    id="calendar"
+                />
 
                 <div className="d-flex gap-4">
                     <Button primary block>
