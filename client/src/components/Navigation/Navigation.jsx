@@ -13,9 +13,6 @@ export default function Navigation() {
             <Link to="/portfolio" className="header-nav__link">
                 Portfolio
             </Link>
-            <Link to="/details" className="header-nav__link">
-                Details
-            </Link>
         </nav>
     );
 }
