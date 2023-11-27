@@ -2,6 +2,9 @@ import Button from "../Button/Button";
 import ModalWrapper from "../Modals/ModalWrapper";
 
 import reactImg from "../../assets/react-core-concepts.png";
+import Label from "../Label/Label";
+import Input from "../Input/Input";
+import CreateEntryModal from "../Modals/CreateEntryModal/CreateEntryModal";
 
 export default function Register() {
     return (
@@ -10,32 +13,27 @@ export default function Register() {
                 <div className="header_logo">
                     <img src={reactImg} alt="CoinTrack's logo" />
                 </div>
-                <label htmlFor="email">Email:</label>
-                <input
+                <Input
+                    labelName="Email"
                     type="email"
-                    id="email"
                     name="email"
                     placeholder="maria@email.com"
-                    // onChange={onChange}
-                    // value={values[RegisterFormKeys.Email]}
+                    id="email"
                 />
 
-                <label htmlFor="pass">Password:</label>
-                <input
+                <Input
+                    labelName="Password"
                     type="password"
                     name="password"
+                    placeholder="Enter password"
                     id="register-password"
-                    // onChange={onChange}
-                    // value={values[RegisterFormKeys.Password]}
                 />
-
-                <label htmlFor="con-pass">Confirm Password:</label>
-                <input
-                    type="password"
+                <Input
+                    labelName="Confirm Password"
+                    type="confirm-password"
                     name="confirm-password"
-                    id="confirm-password"
-                    // onChange={onChange}
-                    // value={values[RegisterFormKeys.ConfirmPassword]}
+                    placeholder="Enter password again"
+                    id="register-password"
                 />
 
                 <Button primary>Register</Button>
