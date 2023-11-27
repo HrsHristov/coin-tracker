@@ -1,30 +1,37 @@
 import Button from "../Button/Button";
-import ModalWrapper from "../Modals/ModalWrapper";
+import Card from "../Card/Card";
+import Input from "../Input/Input";
 
 export default function Login() {
     return (
-        <ModalWrapper title="Login">
-            <form>
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@gmail.com"
-                    // onChange={onChange}
-                    // value={values[LoginFormKeys.Email]}
-                />
+        <div className="container container--sm my-5">
+            <Card>
+                <form>
+                    <div className="form-group">
+                        <Input
+                            labelName="Email"
+                            type="email"
+                            name="email"
+                            placeholder="example@gmail.com"
+                            id="email"
+                        />
+                    </div>
 
-                <label htmlFor="login-pass">Password:</label>
-                <input
-                    type="password"
-                    id="login-password"
-                    name="password"
-                    // onChange={onChange}
-                    // value={values[LoginFormKeys.Password]}
-                />
-                <Button primary>Login</Button>
-            </form>
-        </ModalWrapper>
+                    <div className="form-group">
+                        <Input
+                            labelName="Password"
+                            type="password"
+                            name="password"
+                            placeholder="Enter password"
+                            id="password"
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <Button primary>Login</Button>
+                    </div>
+                </form>
+            </Card>
+        </div>
     );
 }
