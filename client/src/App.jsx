@@ -17,7 +17,7 @@ function App() {
                 <Route path="/portfolio" element={<PortfolioList />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/details" element={<CoinDetails />} />
+                <Route path="/coins/:uuid" element={<CoinDetails />} />
             </Routes>
             <Footer />
         </>
