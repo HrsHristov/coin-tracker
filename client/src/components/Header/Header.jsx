@@ -1,28 +1,28 @@
+import { Link } from "react-router-dom";
+
 import reactImg from "../../assets/react-core-concepts.png";
+import Button from "../Button/Button";
 import Navigation from "../Navigation/Navigation";
+
+import "./Header.css";
 
 export default function Header() {
     return (
-        <>
-            <header className="container">
-                <div className="d-flex align-items-center justify-content-start gap-3">
-                    <img src={reactImg} alt="CoinTrack's logo"></img>
+        <header className="header">
+            <div className="header_logo">
+                <img src={reactImg} alt="CoinTrack's logo" />
+                <span>CoinTrack</span>
+            </div>
 
-                    <div>
-                        <span className="header-title">CointTrack</span>
-                    </div>
-                </div>
-                <Navigation />
-                <div className="d-flex gap-2">
-                    <button type="submit" className="login-button">
-                        Login
-                    </button>
-                    <button type="submit" className="sign-up-button">
-                        Sign Up
-                    </button>
-                </div>
-            </header>
-            <div className="divider m-0 mx-5"></div>
-        </>
+            <Navigation />
+            <div className="header_actions">
+                <Link to="/login">
+                    <Button primary>Login</Button>
+                </Link>
+                <Link to="/register">
+                    <Button secondary>Sign Up</Button>
+                </Link>
+            </div>
+        </header>
     );
 }
