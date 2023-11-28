@@ -5,6 +5,8 @@ export default function Input({
     name,
     labelName,
     placeholder,
+    onChange,
+    value,
     ...props
 }) {
     return (
@@ -14,9 +16,9 @@ export default function Input({
                 type={type}
                 name={name}
                 placeholder={placeholder}
+                onChange={onChange}
+                value={value}
                 {...props}
-                // onChange={onChange}
-                // value={values[LoginFormKeys.Email]}
             />
         </div>
     );
