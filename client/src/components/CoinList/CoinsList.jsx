@@ -1,4 +1,4 @@
-import * as coinsService from "../../servies/coinsService.js";
+import * as coinsService from "../../services/coinsService.js";
 import { useState, useEffect } from "react";
 
 import ListHeader from "../ListHeader/ListHeader.jsx";

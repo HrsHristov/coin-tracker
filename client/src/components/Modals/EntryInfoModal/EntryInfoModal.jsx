@@ -1,7 +1,7 @@
 import cross from "../../../assets/cross.png";
 import { useEffect, useState } from "react";
 
-import * as portfolioAPI from "../../../servies/portfolioService.js";
+import * as portfolioAPI from "../../../services/portfolioService.js";
 import {
     calculateHoldings,
     calculatePNL,

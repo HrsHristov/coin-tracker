@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import * as coinsService from "../../servies/coinsService";
+import * as coinsService from "../../services/coinsService";
 import { formatNumber, formatPrice } from "../../utils/formatUtils";
 
 import ListWrapper from "../ListWrapper/ListWrapper";
