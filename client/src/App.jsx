@@ -1,9 +1,10 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import * as authService from "./servies/authService.js";
+import * as authService from "./services/authService.js";
 import AuthContext from "./Contexts/authContext.js";
 import Path from "./paths.js";
+import * as portfolioService from "./services/portfolioService.js";
 
 import Header from "./components/Header/Header.jsx";
 import Footer from "./components/Footer/Footer.jsx";
@@ -13,6 +14,7 @@ import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import CoinDetails from "./components/CoinDetails/CoinDetails.jsx";
 import Logout from "./components/logout/Logout.jsx";
+import AddEntry from "./components/AddEntry/AddEntry.jsx";
 
 function App() {
     const navigate = useNavigate();
@@ -47,10 +49,21 @@ function App() {
         localStorage.removeItem("accessToken");
     };
 
+    const addEntrySubmitHandler = async (values) => {
+        try {
+            await portfolioService.create(values);
+            navigate("/portfolio");
+        } catch (err) {
+            // Error notification
+            console.log(err);
+        }
+    };
+
     const values = {
         loginSubmitHandler,
         registerSubmitHandler,
         logoutHandler,
+        addEntrySubmitHandler,
         username: auth.username,
         email: auth.email,
         isAuthenticated: !auth.email,
@@ -61,6 +74,7 @@ function App() {
             <Routes>
                 <Route path="/coins" element={<CoinsList />} />
                 <Route path="/portfolio" element={<PortfolioList />} />
+                <Route path="/add" element={<AddEntry />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/coins/:uuid" element={<CoinDetails />} />
