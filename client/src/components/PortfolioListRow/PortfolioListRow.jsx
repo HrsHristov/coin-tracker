@@ -1,33 +1,29 @@
-import plus from "../../assets/plus.png";
-import binIcon from "../../assets/bin.png";
-import infoIcon from "../../assets/info.png";
-
 import { useState, useEffect } from "react";
+
 import { formatNumber, formatPrice } from "../../utils/formatUtils.js";
+
+import DeleteEntryModal from "../Modals/DeleteEntryModal/DeleteEntryModal.jsx";
+import EntryInfoModal from "../Modals/EntryInfoModal/EntryInfoModal.jsx";
+
 import {
     calculateHoldings,
     calculatePNL,
     calculatePNLPercentage,
 } from "../../utils/calculationsUtils.js";
 
-import * as coinsService from "../../servies/coinsService.js";
+import * as coinsService from "../../services/coinsService.js";
 import Button from "../Button/Button.jsx";
 
 export default function PortfolioListRow({
     _id,
     uuid,
-    name,
-    symbol,
-    iconUrl,
-    buyPrice,
-    sellPrice,
+    price,
     quantity,
-    onDeleteClick,
-    onInfoClick,
+    handleEntries,
 }) {
     const [coinInfo, setCoinInfo] = useState(null);
-
-    console.log(coinInfo);
+    const [showDelete, setShowDelete] = useState(false);
+    const [showInfo, setShowInfo] = useState(false);
 
     useEffect(() => {
         coinsService
@@ -36,128 +32,92 @@ export default function PortfolioListRow({
             .catch((err) => console.log(err));
     }, []);
 
-    const infoClickHandler = () => {
-        onInfoClick(_id);
+    const entryInfoClickHandler = () => {
+        setShowInfo(true);
     };
 
-    const deleteClickHandler = () => {
-        onDeleteClick(_id);
+    const deleteEntryClickHandler = () => {
+        setShowDelete(true);
     };
 
     if (!coinInfo) {
         return <div>loading....</div>;
     }
 
-    const currentPrice = coinInfo.data.coin.price;
-    const priceChange = coinInfo.data.coin.change;
+    console.log(coinInfo);
 
-    return (
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>
-                    <div className="coin-icon">
-                        <img className="img" src={iconUrl} />
-                        <span>{name}</span>
-                        <span>{symbol}</span>
-                    </div>
-                </td>
-                <td>${formatPrice(currentPrice.toString())}</td>
-                <td>
-                    {coinInfo.data.coin.change > 0 ? (
-                        <div className="up">+{priceChange}%</div>
-                    ) : (
-                        <div className="down">{priceChange}%</div>
-                    )}
-                </td>
-                <td>
-                    <div>${calculateHoldings(buyPrice, quantity)}</div>
-                    <div>
-                        {quantity} {symbol}
-                    </div>
-                </td>
-                <td>${formatPrice(buyPrice.toString())}</td>
-                <td>
-                    <div>${calculatePNL(currentPrice, buyPrice, quantity)}</div>
+    const iconUrl = coinInfo?.data?.coin?.iconUrl;
+    const name = coinInfo?.data?.coin?.name;
+    const symbol = coinInfo?.data?.coin?.symbol;
 
-                    {currentPrice > buyPrice ? (
-                        <div className="up">
-                            {calculatePNLPercentage(currentPrice, buyPrice)}%
-                        </div>
-                    ) : (
-                        <div className="down">
-                            {calculatePNLPercentage(currentPrice, buyPrice)}%
-                        </div>
-                    )}
-                </td>
-                <td>
-                    <Button primary onClick={infoClickHandler}>
-                        Info
-                    </Button>
-                    <Button primary onClick={deleteClickHandler}>
-                        Del
-                    </Button>
-                </td>
-            </tr>
-        </tbody>
-    );
+    const currentPrice = coinInfo?.data?.coin?.price;
+    const priceChange = coinInfo?.data?.coin?.change;
+    const change = coinInfo?.data?.coin?.change;
+
+    const holdings = calculateHoldings(price, quantity);
+    const pnl = calculatePNL(currentPrice, price, quantity);
+    const pnlPercent = calculatePNLPercentage(currentPrice, price);
 
     return (
         <>
-            <div className="divider"></div>
-            <div className="coin-row">
-                <div className="d-flex gap-2 coin-icon-conteiner">
-                    <div className="coin-icon">
-                        <img className="img" src={iconUrl} />
-                    </div>
-                    <div className="d-flex-center-content gap-2">
-                        <span>{name}</span>
-                        <span>{symbol}</span>
-                    </div>
-                </div>
-                <div>${formatPrice(currentPrice.toString())}</div>
-                {coinInfo.data.coin.change > 0 ? (
-                    <div className="up">+{priceChange}%</div>
-                ) : (
-                    <div className="down">{priceChange}%</div>
-                )}
-                <div className="d-flex-column gap-1 text-end">
-                    <div>${calculateHoldings(buyPrice, quantity)}</div>
-                    <div>
-                        {quantity} {symbol}
-                    </div>
-                </div>
-                <div>${formatPrice(buyPrice.toString())}</div>
-                <div className="d-flex-column gap-1 text-end">
-                    <div>${calculatePNL(currentPrice, buyPrice, quantity)}</div>
+            {showDelete && (
+                <DeleteEntryModal
+                    onClose={() => setShowDelete(false)}
+                    onDelete={() => handleEntries(_id)}
+                />
+            )}
 
-                    {currentPrice > buyPrice ? (
-                        <div className="up">
-                            {calculatePNLPercentage(currentPrice, buyPrice)}%
+            {showInfo && (
+                <EntryInfoModal
+                    onClose={() => setShowInfo(false)}
+                    entryId={entryInfoClickHandler}
+                />
+            )}
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <div className="coin-icon">
+                            <img className="img" src={iconUrl} />
+                            <span>{name}</span>
+                            <span>{symbol}</span>
                         </div>
-                    ) : (
-                        <div className="down">
-                            {calculatePNLPercentage(currentPrice, buyPrice)}%
+                    </td>
+                    <td>${formatPrice(currentPrice.toString())}</td>
+                    <td>
+                        {change > 0 ? (
+                            <div className="up">+{priceChange}%</div>
+                        ) : (
+                            <div className="down">{priceChange}%</div>
+                        )}
+                    </td>
+                    <td>
+                        <div>${holdings}</div>
+                        <div>
+                            {quantity} {symbol}
                         </div>
-                    )}
-                </div>
-                <div className="d-flex-end-content gap-2">
-                    <button
-                        type="submit"
-                        className="button-action"
-                        onClick={infoClickHandler}
-                    >
-                        <img src={infoIcon} width="16" height="16" />
-                    </button>
-                    <button
-                        type="submit"
-                        className="button-action"
-                        onClick={deleteClickHandler}
-                    >
-                        <img src={binIcon} width="18" height="18" />
-                    </button>
-                </div>
-            </div>
+                    </td>
+                    <td>${formatPrice(price.toString())}</td>
+                    <td>
+                        <div>${pnl}</div>
+
+                        {currentPrice > price ? (
+                            <div className="up">{pnlPercent}%</div>
+                        ) : (
+                            <div className="down">{pnlPercent}%</div>
+                        )}
+                    </td>
+                    <td>
+                        <Button primary onClick={entryInfoClickHandler}>
+                            Info
+                        </Button>
+                        <Button primary>Edit</Button>
+                        <Button primary onClick={deleteEntryClickHandler}>
+                            Del
+                        </Button>
+                    </td>
+                </tr>
+            </tbody>
         </>
     );
 }
