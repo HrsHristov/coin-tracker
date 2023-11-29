@@ -20,6 +20,9 @@ export default function Navigation() {
                 <Link to="/portfolio" className="header-nav__link">
                     Portfolio
                 </Link>
+                <Link to="/add" className="header-nav__link">
+                    Add Entry
+                </Link>
             </nav>
 
             {isAuthenticated && (
