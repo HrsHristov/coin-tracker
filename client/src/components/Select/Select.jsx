@@ -1,12 +1,11 @@
-import Label from "../Label/Label";
-
-export default function Select({ data }) {
+export default function Select({ data, name, id, onChange }) {
     return (
-        <select>
-            {data.map((entry) => (
+        <select name={name} id={id} onChange={onChange}>
+            {data.map((coin) => (
                 <option
-                    key={entry.name}
-                >{`${entry.name} (${entry.symbol})`}</option>
+                    key={coin.name}
+                    value={coin.uuid}
+                >{`${coin.name} (${coin.symbol})`}</option>
             ))}
         </select>
     );
