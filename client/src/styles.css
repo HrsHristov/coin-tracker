@@ -1,55 +1,3 @@
-@import "../node_modules//bootstrap/dist/css/bootstrap.css";
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 0rem;
-}
-
-.header-title {
-    font-family: Georgia, serif;
-    font-size: 2rem;
-}
-
-.header-menu-item {
-    cursor: pointer;
-    display: inline-block;
-}
-
-.header-menu-item::after {
-    content: "";
-    width: 0px;
-    height: 2px;
-    display: block;
-    background: #3861fb;
-    transition: 300ms;
-}
-
-.header-menu-item:hover:after {
-    width: 100%;
-}
-
-button {
-    border-radius: 8px !important;
-    height: 32px;
-    padding: 0px 16px;
-    line-height: 18px;
-    cursor: pointer;
-}
-
-.login-button {
-    background-color: rgb(13, 20, 33);
-    color: #3861fb;
-    border: 1px solid #3861fb;
-}
-
-.sign-up-button {
-    background-color: #3861fb;
-    color: white;
-    border: 1px solid #3861fb;
-}
-
 .d-flex {
     display: flex;
 }
@@ -156,6 +104,12 @@ button {
     border-radius: 1.25rem;
 }
 
+.thumbnail {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1.25rem;
+}
+
 .rank {
     max-width: 2rem;
 }
@@ -164,43 +118,6 @@ button {
     background-color: rgb(50, 53, 70);
     height: 1px;
     margin: 0.075rem;
-}
-
-.nav-tabs {
-    border: 0;
-    padding: 0.5rem;
-    background-color: rgb(50, 53, 70);
-    border-radius: 0.75rem;
-
-    .nav-item {
-        margin: 0rem 0.5rem;
-        color: white;
-        flex: 1;
-    }
-
-    .nav-link {
-        padding: 0.5rem 3.25rem;
-        border-radius: 0.75rem;
-        color: white;
-        width: 100%;
-
-        &.active {
-            background-color: rgb(13, 20, 33);
-            color: white;
-            border-radius: 0.75rem;
-            border: 0 !important;
-        }
-    }
-}
-
-.tab-pane.active {
-    padding-top: 1.5rem;
-}
-
-.buy-tab {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
 }
 
 .coins-select {
@@ -286,49 +203,6 @@ button {
     border-radius: 0.75rem;
 }
 
-.button-action {
-    border: 0;
-    background: transparent;
-    width: 2rem;
-    height: 2rem;
-}
-
-/* .secondary-button {
-    background-color: rgb(50, 53, 70);
-    color: white;
-    border: 0;
-    padding: 0px 24px;
-    border-radius: 8px;
-} */
-
-.app-modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(111, 111, 111, 0.4);
-}
-
-.app-modal-content {
-    position: relative;
-    margin: 0 auto;
-    margin-top: 10rem;
-    max-width: 500px;
-    padding: 1.5rem 1rem;
-    background-color: rgb(23, 23, 26);
-    border-radius: 16px;
-    color: white;
-}
-
-.modal-title {
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    font-weight: bold;
-}
-
 .d-flex-between-content {
     display: flex;
     justify-content: space-between;
@@ -339,34 +213,89 @@ button {
 }
 
 /* TODO delete bootstrap and create separate components */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    & > main {
+        flex-grow: 1;
+    }
+}
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+    width: 100%;
+}
+
+.container--content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
 .container--sm {
     max-width: 420px !important;
 }
 
-.form-group__label {
-    display: block;
-    margin-bottom: 2px;
-    font-size: 12px;
-}
-
-.form-group__input {
-    color: rgb(13, 1, 51);
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    line-height: 1rem;
-    padding: 8xp;
-    background-color: #fff;
+table {
     width: 100%;
-    border: 1px solid black;
-    border-radius: 8px;
+    text-align: left;
 }
 
-.form-group__input:focus,
-.form-group__input:hover {
-    outline: none;
-    border: 1px solid rgb(0, 233, 249);
+td,
+th {
+    padding: 0.5rem 0.5rem;
 }
 
-.form-group + .form-group {
-    margin-top: 12px;
+/* Utils */
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.ml-4 {
+    margin-left: 1rem;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-md {
+    font-size: 1.25rem;
+}
+
+.text-lg {
+    font-size: 1.5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+/* TODO grid */
+.row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-4 {
+    width: 33.33%;
 }
