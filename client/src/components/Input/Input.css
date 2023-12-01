@@ -1,0 +1,20 @@
+.form-group__input {
+    color: rgb(13, 1, 51);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: calc(100% - 2rem);
+}
+
+.form-group__input:focus,
+.form-group__input:hover {
+    outline: none;
+    border: 1px solid rgb(0, 233, 249);
+}
+
+.form-group + .form-group {
+    margin-top: 1rem;
+}

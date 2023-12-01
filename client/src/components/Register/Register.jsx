@@ -26,9 +26,6 @@ export default function Register() {
         <div className="container container--sm my-5">
             <Card>
                 <form onSubmit={onSubmit}>
-                    <div className="header_logo">
-                        <img src={reactImg} alt="CoinTrack's logo" />
-                    </div>
                     <Input
                         labelName="Email"
                         type="email"
@@ -58,7 +55,11 @@ export default function Register() {
                         onChange={onChange}
                     />
 
-                    <Button primary>Register</Button>
+                    <div className="form-group">
+                        <Button primary block>
+                            Register
+                        </Button>
+                    </div>
                 </form>
             </Card>
         </div>

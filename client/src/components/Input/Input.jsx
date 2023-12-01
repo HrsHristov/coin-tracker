@@ -1,5 +1,5 @@
 import Label from "../Label/Label";
-
+import "./Input.css";
 export default function Input({
     type,
     name,
@@ -10,9 +10,10 @@ export default function Input({
     ...props
 }) {
     return (
-        <div>
+        <div className="form-group">
             <Label htmlFor={type}>{labelName}:</Label>
             <input
+                className="form-group__input"
                 type={type}
                 name={name}
                 placeholder={placeholder}

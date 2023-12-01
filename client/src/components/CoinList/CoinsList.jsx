@@ -16,7 +16,9 @@ export default function CoinsList() {
 
     return (
         <table>
-            <ListHeader title="coins" />
+            <thead>
+                <ListHeader title="coins" />
+            </thead>
             {coins.map((coin) => (
                 <CoinListRow
                     key={coin.rank}

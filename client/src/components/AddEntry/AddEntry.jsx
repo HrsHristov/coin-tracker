@@ -42,12 +42,14 @@ export default function AddEntry() {
         <div className="container container--sm my-5">
             <Card>
                 <form id="add-entry" onSubmit={onSubmit}>
-                    <div>
+                    <div className="form-group">
                         <select
                             name={AddFormKeys.TxType}
                             id="txType"
                             onChange={onChange}
+                            className="form-group__select"
                         >
+                            <option value="">Select operation type</option>
                             <option value="buy">Buy</option>
                             <option value="sell">Sell</option>
                         </select>
@@ -89,7 +91,7 @@ export default function AddEntry() {
                         onChange={onChange}
                     />
 
-                    {/* <Calendar
+                    <Calendar
                         labelName="Date"
                         type="date"
                         name="calendar"
@@ -97,15 +99,13 @@ export default function AddEntry() {
                         id="calendar"
                         value={values[AddFormKeys.Date]}
                         onChange={onChange}
-                    /> */}
+                    />
 
-                    <div className="d-flex gap-4">
+                    <div className="d-flex gap-4 form-group">
                         <Button primary block>
                             Add Transaction
                         </Button>
-                        <Button secondary block>
-                            Cancel
-                        </Button>
+                        <Button block>Cancel</Button>
                     </div>
                 </form>
             </Card>

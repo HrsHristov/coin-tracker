@@ -18,7 +18,7 @@ export default function Navigation() {
                     Coins
                 </Link>
                 <Link to="/portfolio" className="header-nav__link">
-                    Portfolio
+                    Portfolpio
                 </Link>
                 <Link to="/add" className="header-nav__link">
                     Add Entry
@@ -26,12 +26,12 @@ export default function Navigation() {
             </nav>
 
             {isAuthenticated && (
-                <div className="header_actions">
+                <div className="header__actions">
                     <Link to="/login">
                         <Button primary>Login</Button>
                     </Link>
                     <Link to="/register">
-                        <Button secondary>Sign Up</Button>
+                        <Button>Sign Up</Button>
                     </Link>
                 </div>
             )}

@@ -22,41 +22,61 @@ export default function EntryInfoModal({ entryId, onClose }) {
 
     return (
         <ModalWrapper title="Transaction Details">
-            <div>
-                <span>Type: </span>
-                <span>Buy</span>
-            </div>
-            <div>
-                <span>Date: </span>
-                <span>{formatDate(entryDetails.date)}</span>
-            </div>
-            <div>
-                <span>Price per coin:</span>
-                <span>${entryDetails.price}</span>
-            </div>
-            <div>
-                <span>Quantity: </span>
-                <span>{`${entryDetails.quantity} ${entryDetails.symbol}`}</span>
-            </div>
-            <div>
-                <span>Fee: </span>
-                <span>{entryDetails.fee}%</span>
-            </div>
-            <div>
-                <span>Total Spent: </span>
-                <span>
-                    $
-                    {calculateHoldings(
-                        entryDetails.price,
-                        entryDetails.quantity
-                    )}
-                </span>
-            </div>
-            <div>
-                <span>Note: </span>
-                <span>{entryDetails.note}</span>
-            </div>
-            <Button onClick={onClose}>Close</Button>
+            <table className="mb-4">
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>Type:</strong>
+                        </td>
+                        <td>Buy</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Date:</strong>
+                        </td>
+                        <td>{formatDate(entryDetails.date)}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Price per coin:</strong>
+                        </td>
+                        <td>${entryDetails.price}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Quantity:</strong>
+                        </td>
+                        <td>{`${entryDetails.quantity} ${entryDetails.symbol}`}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Fee:</strong>
+                        </td>
+                        <td>${entryDetails.fee}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Total Spent:</strong>
+                        </td>
+                        <td>
+                            $
+                            {calculateHoldings(
+                                entryDetails.price,
+                                entryDetails.quantity
+                            )}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Note:</strong>
+                        </td>
+                        <td>{entryDetails.note}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <Button onClick={onClose} block>
+                Close
+            </Button>
         </ModalWrapper>
     );
 }

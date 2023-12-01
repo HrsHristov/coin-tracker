@@ -4,7 +4,7 @@ import Button from "../../Button/Button";
 export default function DeleteEntryModal({ onClose, onDelete }) {
     return (
         <Modal title="Delete">
-            <p>Are you sure you want to delete this entry?</p>
+            <p className="mb-4">Are you sure you want to delete this entry?</p>
             <div className="d-flex gap-4">
                 <Button primary block onClick={onDelete}>
                     Delete

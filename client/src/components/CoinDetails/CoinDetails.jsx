@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import Card from "../Card/Card";
 import * as coinsService from "../../services/coinsService";
 import { formatNumber, formatPrice } from "../../utils/formatUtils";
 
@@ -39,51 +39,82 @@ export default function CoinDetails() {
     return (
         <ListWrapper>
             {/* Chart section */}
-            <div>
-                <h1>CHART HERE</h1>
-            </div>
 
-            {/* "Header" section with Logo, Name, Price */}
-            <div>
-                {/* bitcoin logo infront of the name */}
-                <div className="coin-icon">
-                    <img className="img" src={iconUrl} />
-                    <h2>{name}</h2>
+            <div className="row">
+                <div className="col-4">
+                    <Card>
+                        {/* "Header" section with Logo, Name, Price */}
+                        <header className="mb-4">
+                            {/* bitcoin logo infront of the name */}
+                            <div className="coin-icon row mb-4">
+                                <div className="col-6 flex items-center">
+                                    <img className="thumbnail" src={iconUrl} />
+                                    <h2 className="ml-4 text-md">
+                                        <strong>{name}</strong>
+                                    </h2>
+                                </div>
+                                <div className="col-6 text-right">
+                                    <strong className="text-lg">
+                                        ${price}
+                                    </strong>
+                                </div>
+                            </div>
+
+                            <p>{description}</p>
+                        </header>
+
+                        {/* Section with  with recent price movements*/}
+                        <main>
+                            {/* Section for general coin info */}
+                            <table>
+                                <tr>
+                                    <td>Volume 24h</td>
+                                    <td>
+                                        <p>{volume}</p>
+                                        <p className="up">
+                                            {change > 0 ? (
+                                                <div className="up">
+                                                    +{change}%
+                                                </div>
+                                            ) : (
+                                                <div className="down">
+                                                    {change}%
+                                                </div>
+                                            )}
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>All Time High</h5>
+                                    </td>
+                                    <td>
+                                        <p>{ath}</p>
+                                        <p>On Date: {athDate}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>MarketCap</h5>
+                                    </td>
+                                    <td>
+                                        <p>{marketCap}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>FullyDilutedMarketCap</h5>
+                                    </td>
+                                    <td>
+                                        <p>{fullyDilutedMarketCap}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </main>
+                    </Card>
                 </div>
-
-                <p>${price}</p>
-                <p>{description}</p>
-            </div>
-
-            {/* Section with  with recent price movements*/}
-            <div>
-                <div>
-                    <h5>Volume 24h</h5>
-                    <p>{volume}</p>
-                    <p className="up">
-                        {change > 0 ? (
-                            <div className="up">+{change}%</div>
-                        ) : (
-                            <div className="down">{change}%</div>
-                        )}
-                    </p>
-                </div>
-            </div>
-
-            {/* Section for general coin info */}
-            <div>
-                <div>
-                    <h5>All Time High</h5>
-                    <p>{ath}</p>
-                    <p>On Date: {athDate}</p>
-                </div>
-
-                <div>
-                    <p>MarketCap</p>
-                    <p>{marketCap}</p>
-
-                    <p>FullyDilutedMarketCap</p>
-                    <p>{fullyDilutedMarketCap}</p>
+                <div className="col-8">
+                    <Card>Chart</Card>
                 </div>
             </div>
         </ListWrapper>

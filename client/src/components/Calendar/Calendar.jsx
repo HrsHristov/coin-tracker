@@ -1,4 +1,5 @@
 import Label from "../Label/Label";
+import "./Calendar.css";
 
 export default function Calendar({
     type,
@@ -8,9 +9,10 @@ export default function Calendar({
     ...props
 }) {
     return (
-        <div>
+        <div className="form-group">
             <Label htmlFor={type}>{labelName}:</Label>
             <input
+                className="form-group__calendar"
                 type={type}
                 name={name}
                 placeholder={placeholder}
