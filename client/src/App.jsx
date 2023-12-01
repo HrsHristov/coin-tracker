@@ -1,6 +1,6 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import "reset-css/reset.css";
 import * as authService from "./services/authService.js";
 import AuthContext from "./Contexts/authContext.js";
 import Path from "./paths.js";
@@ -71,15 +71,18 @@ function App() {
     return (
         <AuthContext.Provider value={values}>
             <Header />
-            <Routes>
-                <Route path="/coins" element={<CoinsList />} />
-                <Route path="/portfolio" element={<PortfolioList />} />
-                <Route path="/add" element={<AddEntry />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/coins/:uuid" element={<CoinDetails />} />
-                <Route path={Path.Logout} element={<Logout />} />
-            </Routes>
+
+            <main className="container container--content">
+                <Routes>
+                    <Route path="/coins" element={<CoinsList />} />
+                    <Route path="/portfolio" element={<PortfolioList />} />
+                    <Route path="/add" element={<AddEntry />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/coins/:uuid" element={<CoinDetails />} />
+                    <Route path={Path.Logout} element={<Logout />} />
+                </Routes>
+            </main>
             <Footer />
         </AuthContext.Provider>
     );
