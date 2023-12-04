@@ -251,7 +251,7 @@ form > h1 {
 td,
 th {
     padding: 0.5rem 0.5rem;
-    /* text-align: left; */
+    text-align: end;
 }
 
 /* Utils */
