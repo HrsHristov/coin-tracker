@@ -243,6 +243,11 @@ table {
     /* text-align: right; */
 }
 
+form > h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
 td,
 th {
     padding: 0.5rem 0.5rem;
@@ -264,6 +269,10 @@ th {
 
 .text-left {
     text-align: left;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .text-md {
