@@ -1,6 +1,7 @@
 import Label from "../Label/Label";
 import "./Input.css";
-export default function Input({
+
+const Input = ({
     type,
     name,
     labelName,
@@ -8,7 +9,7 @@ export default function Input({
     onChange,
     value,
     ...props
-}) {
+}) => {
     return (
         <div className="form-group">
             <Label htmlFor={type}>{labelName}:</Label>
@@ -23,4 +24,6 @@ export default function Input({
             />
         </div>
     );
-}
+};
+
+export default Input;

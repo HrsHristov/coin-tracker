@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ListHeader from "../ListHeader/ListHeader.jsx";
 import CoinListRow from "../CoinListRow/CoinListRow.jsx";
 
-export default function CoinsList() {
+const CoinsList = () => {
     const [coins, setCoins] = useState([]);
 
     useEffect(() => {
@@ -28,4 +28,6 @@ export default function CoinsList() {
             ))}
         </table>
     );
-}
+};
+
+export default CoinsList;

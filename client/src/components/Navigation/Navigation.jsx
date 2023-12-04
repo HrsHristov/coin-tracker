@@ -9,7 +9,7 @@ import "./Navigation.css";
 // TODO - Add structure
 // Use router name
 
-export default function Navigation() {
+const Navigation = () => {
     const { isAuthenticated, email } = useContext(AuthContext);
     return (
         <>
@@ -46,4 +46,6 @@ export default function Navigation() {
             )}
         </>
     );
-}
+};
+
+export default Navigation;

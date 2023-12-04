@@ -6,7 +6,7 @@ import { formatNumber, formatPrice } from "../../utils/formatUtils";
 
 import ListWrapper from "../ListWrapper/ListWrapper";
 
-export default function CoinDetails() {
+const CoinDetails = () => {
     const [coinInfo, setCoinInfo] = useState(null);
     const { uuid } = useParams();
 
@@ -119,4 +119,6 @@ export default function CoinDetails() {
             </div>
         </ListWrapper>
     );
-}
+};
+
+export default CoinDetails;

@@ -1,13 +1,7 @@
 import Label from "../Label/Label";
 import "./Calendar.css";
 
-export default function Calendar({
-    type,
-    name,
-    labelName,
-    placeholder,
-    ...props
-}) {
+const Calendar = ({ type, name, labelName, placeholder, ...props }) => {
     return (
         <div className="form-group">
             <Label htmlFor={type}>{labelName}:</Label>
@@ -22,4 +16,6 @@ export default function Calendar({
             />
         </div>
     );
-}
+};
+
+export default Calendar;

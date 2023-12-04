@@ -3,7 +3,7 @@ import Navigation from "../Navigation/Navigation";
 
 import "./Header.css";
 
-export default function Header() {
+const Header = () => {
     return (
         <header className="header">
             <div className="container">
@@ -16,4 +16,6 @@ export default function Header() {
             </div>
         </header>
     );
-}
+};
+
+export default Header;

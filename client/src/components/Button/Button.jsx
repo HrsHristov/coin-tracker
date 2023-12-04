@@ -1,6 +1,6 @@
 import "./Button.css";
 
-export default function Button({ children, primary, block, ...props }) {
+const Button = ({ children, primary, block, ...props }) => {
     return (
         <button
             type="submit"
@@ -12,4 +12,6 @@ export default function Button({ children, primary, block, ...props }) {
             {children}
         </button>
     );
-}
+};
+
+export default Button;

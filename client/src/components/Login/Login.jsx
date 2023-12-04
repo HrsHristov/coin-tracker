@@ -11,7 +11,7 @@ const LoginFormKeys = {
     Password: "password",
 };
 
-export default function Login() {
+const Login = () => {
     const { loginSubmitHandler } = useContext(AuthContext);
     const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
         [LoginFormKeys.Email]: "",
@@ -53,4 +53,6 @@ export default function Login() {
             </Card>
         </div>
     );
-}
+};
+
+export default Login;

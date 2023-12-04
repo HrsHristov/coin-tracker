@@ -14,7 +14,7 @@ const RegisterFormKeys = {
     ConfirmPassword: "confirm-password",
 };
 
-export default function Register() {
+const Register = () => {
     const { registerSubmitHandler } = useContext(AuthContext);
     const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
         [RegisterFormKeys.Email]: "",
@@ -64,4 +64,6 @@ export default function Register() {
             </Card>
         </div>
     );
-}
+};
+
+export default Register;

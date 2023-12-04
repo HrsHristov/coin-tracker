@@ -14,13 +14,7 @@ import {
 import * as coinsService from "../../services/coinsService.js";
 import Button from "../Button/Button.jsx";
 
-export default function PortfolioListRow({
-    _id,
-    uuid,
-    price,
-    quantity,
-    handleEntries,
-}) {
+const PortfolioListRow = ({ _id, uuid, price, quantity, handleEntries }) => {
     const [coinInfo, setCoinInfo] = useState(null);
     const [showDelete, setShowDelete] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
@@ -120,4 +114,6 @@ export default function PortfolioListRow({
             </tbody>
         </>
     );
-}
+};
+
+export default PortfolioListRow;

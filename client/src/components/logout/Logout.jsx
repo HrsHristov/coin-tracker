@@ -5,7 +5,7 @@ import * as authService from "../../services/authService.js";
 import AuthContext from "../../Contexts/authContext";
 import Path from "../../paths.js";
 
-export default function Logout() {
+const Logout = () => {
     const navigate = useNavigate();
     const { logoutHandler } = useContext(AuthContext);
 
@@ -20,4 +20,6 @@ export default function Logout() {
     }, []);
 
     return null;
-}
+};
+
+export default Logout;

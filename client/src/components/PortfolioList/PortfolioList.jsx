@@ -6,7 +6,7 @@ import ListHeader from "../ListHeader/ListHeader.jsx";
 import PortfolioListRow from "../PortfolioListRow/PortfolioListRow.jsx";
 import Button from "../Button/Button.jsx";
 
-export default function PortfolioList() {
+const PortfolioList = () => {
     const [entries, setEntries] = useState([]);
 
     useEffect(() => {
@@ -36,4 +36,6 @@ export default function PortfolioList() {
             </table>
         </>
     );
-}
+};
+
+export default PortfolioList;

@@ -19,7 +19,7 @@ const AddFormKeys = {
     Date: "date",
 };
 
-export default function AddEntry() {
+const AddEntry = () => {
     const { addEntrySubmitHandler } = useContext(AuthContext);
     const [coins, setCoins] = useState([]);
     const { values, onChange, onSubmit } = useForm(addEntrySubmitHandler, {
@@ -111,4 +111,6 @@ export default function AddEntry() {
             </Card>
         </div>
     );
-}
+};
+
+export default AddEntry;

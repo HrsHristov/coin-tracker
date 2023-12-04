@@ -11,7 +11,7 @@ import { formatDate } from "../../../utils/dateUtils.js";
 import ModalWrapper from "../ModalWrapper.jsx";
 import Button from "../../Button/Button.jsx";
 
-export default function EntryInfoModal({ entryId, onClose }) {
+const EntryInfoModal = ({ entryId, onClose }) => {
     const [entryDetails, setEnetryDetails] = useState({});
 
     console.log(entryDetails);
@@ -79,4 +79,6 @@ export default function EntryInfoModal({ entryId, onClose }) {
             </Button>
         </ModalWrapper>
     );
-}
+};
+
+export default EntryInfoModal;

@@ -1,6 +1,6 @@
 import "./Card.css";
 
-export default function Card({ children }) {
+const Card = ({ children }) => {
     return (
         // should be className="card"
         <div className="card-custom">
@@ -11,4 +11,6 @@ export default function Card({ children }) {
             {children}
         </div>
     );
-}
+};
+
+export default Card;

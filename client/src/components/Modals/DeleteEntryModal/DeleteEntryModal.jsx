@@ -1,7 +1,7 @@
 import Modal from "../ModalWrapper";
 import Button from "../../Button/Button";
 
-export default function DeleteEntryModal({ onClose, onDelete }) {
+const DeleteEntryModal = ({ onClose, onDelete }) => {
     return (
         <Modal title="Delete">
             <p className="mb-4">Are you sure you want to delete this entry?</p>
@@ -15,4 +15,6 @@ export default function DeleteEntryModal({ onClose, onDelete }) {
             </div>
         </Modal>
     );
-}
+};
+
+export default DeleteEntryModal;

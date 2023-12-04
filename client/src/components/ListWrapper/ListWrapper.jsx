@@ -1,7 +1,9 @@
-export default function ListWrapper({ children }) {
+const ListWrapper = ({ children }) => {
     return (
         <>
             <div className="container d-flex-column gap-4 my-5">{children}</div>
         </>
     );
-}
+};
+
+export default ListWrapper;

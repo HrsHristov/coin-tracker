@@ -1,6 +1,6 @@
 import "./Select.css";
 
-export default function Select({ data, name, id, onChange }) {
+const Select = ({ data, name, id, onChange }) => {
     return (
         <select
             name={name}
@@ -17,4 +17,6 @@ export default function Select({ data, name, id, onChange }) {
             ))}
         </select>
     );
-}
+};
+
+export default Select;
