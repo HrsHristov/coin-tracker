@@ -26,10 +26,11 @@ const PortfolioList = () => {
             <table>
                 <ListHeader title="portfolio" />
 
-                {entries.map((entry) => (
+                {entries.map((entry, index) => (
                     <PortfolioListRow
                         key={entry._id}
                         {...entry}
+                        index={index}
                         handleEntries={handleEntries}
                     />
                 ))}

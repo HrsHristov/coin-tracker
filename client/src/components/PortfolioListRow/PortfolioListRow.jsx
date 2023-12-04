@@ -14,7 +14,14 @@ import {
 import * as coinsService from "../../services/coinsService.js";
 import Button from "../Button/Button.jsx";
 
-const PortfolioListRow = ({ _id, uuid, price, quantity, handleEntries }) => {
+const PortfolioListRow = ({
+    _id,
+    uuid,
+    price,
+    quantity,
+    index,
+    handleEntries,
+}) => {
     const [coinInfo, setCoinInfo] = useState(null);
     const [showDelete, setShowDelete] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
@@ -69,7 +76,7 @@ const PortfolioListRow = ({ _id, uuid, price, quantity, handleEntries }) => {
             )}
             <tbody>
                 <tr>
-                    <td>1</td>
+                    <td>{++index}</td>
                     <td>
                         <div className="coin-icon">
                             <img className="img" src={iconUrl} />
