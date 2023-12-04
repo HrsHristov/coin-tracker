@@ -1,8 +1,8 @@
 import * as coinsService from "../../services/coinsService.js";
 import { useState, useEffect } from "react";
 
-import ListHeader from "../ListHeader/ListHeader.jsx";
-import CoinListRow from "../CoinListRow/CoinListRow.jsx";
+import ListHeader from "../ListHeader/ListHeader";
+import CoinListRow from "../CoinListRow/CoinListRow";
 
 const CoinsList = () => {
     const [coins, setCoins] = useState([]);

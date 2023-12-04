@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 
-import { formatNumber, formatPrice } from "../../utils/formatUtils.js";
-
-import DeleteEntryModal from "../Modals/DeleteEntryModal/DeleteEntryModal.jsx";
-import EntryInfoModal from "../Modals/EntryInfoModal/EntryInfoModal.jsx";
-
+import { formatNumber, formatPrice } from "../../utils/formatUtils";
+import * as coinsService from "../../services/coinsService";
 import {
     calculateHoldings,
     calculatePNL,
     calculatePNLPercentage,
-} from "../../utils/calculationsUtils.js";
+} from "../../utils/calculationsUtils";
 
-import * as coinsService from "../../services/coinsService.js";
-import Button from "../Button/Button.jsx";
+import DeleteEntryModal from "../Modals/DeleteEntryModal/DeleteEntryModal";
+import EntryInfoModal from "../Modals/EntryInfoModal/EntryInfoModal";
+import Button from "../Button/Button";
 
 const PortfolioListRow = ({
     _id,

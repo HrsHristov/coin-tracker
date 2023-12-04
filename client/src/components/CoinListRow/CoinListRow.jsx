@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
-import { formatNumber, formatPrice } from "../../utils/formatUtils.js";
-import Button from "../Button/Button.jsx";
-import Path from "../../paths.js";
+import { formatNumber, formatPrice } from "../../utils/formatUtils";
+
+import Button from "../Button/Button";
+import Path from "../../paths";
 
 const CoinListRow = ({
     rank,

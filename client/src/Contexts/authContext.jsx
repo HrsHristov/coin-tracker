@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { createContext } from "react";
 
-import Path from "../paths.js";
-import usePersistedState from "../lib/usePersistedState.js";
-import * as portfolioService from "../services/portfolioService.js";
-import * as authService from "../services/authService.js";
+import Path from "../paths";
+import usePersistedState from "../lib/usePersistedState";
+import * as portfolioService from "../services/portfolioService";
+import * as authService from "../services/authService";
 
 const AuthContext = createContext();
 

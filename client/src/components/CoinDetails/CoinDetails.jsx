@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Card from "../Card/Card";
+
 import * as coinsService from "../../services/coinsService";
 import { formatNumber, formatPrice } from "../../utils/formatUtils";
 
+import Card from "../Card/Card";
 import ListWrapper from "../ListWrapper/ListWrapper";
 
 const CoinDetails = () => {

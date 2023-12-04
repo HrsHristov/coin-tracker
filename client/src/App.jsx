@@ -1,19 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 
 import { AuthProvider } from "./Contexts/authContext";
-import Path from "./paths.js";
-
-import Header from "./components/Header/Header.jsx";
-import Footer from "./components/Footer/Footer.jsx";
-import CoinsList from "./components/CoinList/CoinsList.jsx";
-import PortfolioList from "./components/PortfolioList/PortfolioList.jsx";
-import Login from "./components/Login/Login.jsx";
-import Register from "./components/Register/Register.jsx";
-import CoinDetails from "./components/CoinDetails/CoinDetails.jsx";
-import Logout from "./components/logout/Logout.jsx";
-import AddEntry from "./components/AddEntry/AddEntry.jsx";
+import Path from "./paths";
 
 import "reset-css/reset.css";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import CoinsList from "./components/CoinList/CoinsList";
+import PortfolioList from "./components/PortfolioList/PortfolioList";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import CoinDetails from "./components/CoinDetails/CoinDetails";
+import Logout from "./components/logout/Logout";
+import AddEntry from "./components/AddEntry/AddEntry";
 
 function App() {
     return (

@@ -1,4 +1,4 @@
-import { formatPrice } from "./formatUtils.js";
+import { formatPrice } from "./formatUtils";
 
 export const calculateHoldings = (price, quanity) => {
     const holdings = formatPrice((price * quanity).toString());

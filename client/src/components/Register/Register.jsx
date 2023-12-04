@@ -4,8 +4,6 @@ import AuthContext from "../../Contexts/authContext";
 import useForm from "../../hooks/useForm";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
-
-import reactImg from "../../assets/react-core-concepts.png";
 import Card from "../Card/Card";
 
 const RegisterFormKeys = {

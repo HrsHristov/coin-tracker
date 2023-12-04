@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 
-import * as portfolioService from "../../services/portfolioService.js";
+import * as portfolioService from "../../services/portfolioService";
 
-import ListHeader from "../ListHeader/ListHeader.jsx";
-import PortfolioListRow from "../PortfolioListRow/PortfolioListRow.jsx";
-import Button from "../Button/Button.jsx";
+import ListHeader from "../ListHeader/ListHeader";
+import PortfolioListRow from "../PortfolioListRow/PortfolioListRow";
 
 const PortfolioList = () => {
     const [entries, setEntries] = useState([]);

@@ -1,15 +1,16 @@
 import cross from "../../../assets/cross.png";
 import { useEffect, useState } from "react";
 
-import * as portfolioAPI from "../../../services/portfolioService.js";
+import { formatDate } from "../../../utils/dateUtils";
+import * as portfolioAPI from "../../../services/portfolioService";
 import {
     calculateHoldings,
     calculatePNL,
     calculatePNLPercentage,
-} from "../../../utils/calculationsUtils.js";
-import { formatDate } from "../../../utils/dateUtils.js";
-import ModalWrapper from "../ModalWrapper.jsx";
-import Button from "../../Button/Button.jsx";
+} from "../../../utils/calculationsUtils";
+
+import ModalWrapper from "../ModalWrapper";
+import Button from "../../Button/Button";
 
 const EntryInfoModal = ({ entryId, onClose }) => {
     const [entryDetails, setEnetryDetails] = useState({});
