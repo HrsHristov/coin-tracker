@@ -22,6 +22,7 @@ const Login = () => {
         <div className="container container--sm my-5">
             <Card>
                 <form onSubmit={onSubmit}>
+                    <h1>Login</h1>
                     <div className="form-group">
                         <Input
                             labelName="Email"

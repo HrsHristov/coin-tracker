@@ -26,6 +26,7 @@ const Register = () => {
         <div className="container container--sm my-5">
             <Card>
                 <form onSubmit={onSubmit}>
+                    <h1>Register</h1>
                     <Input
                         labelName="Email"
                         type="email"
