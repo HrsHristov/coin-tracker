@@ -42,6 +42,7 @@ const AddEntry = () => {
         <div className="container container--sm my-5">
             <Card>
                 <form id="add-entry" onSubmit={onSubmit}>
+                    <h1>Add Transaction</h1>
                     <div className="form-group">
                         <select
                             name={AddFormKeys.TxType}
