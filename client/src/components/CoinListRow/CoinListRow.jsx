@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import { formatNumber, formatPrice } from "../../utils/formatUtils.js";
 import Button from "../Button/Button.jsx";
+import Path from "../../paths.js";
 
 const CoinListRow = ({
     rank,
@@ -44,7 +45,7 @@ const CoinListRow = ({
                 <td>${volumeFormatted}</td>
                 <td>{btcPriceFormatted}</td>
                 <td>
-                    <Link to={`/coins/${uuid}`}>
+                    <Link to={`${Path.Coins}/${uuid}`}>
                         <Button primary>Details</Button>
                     </Link>
                 </td>
