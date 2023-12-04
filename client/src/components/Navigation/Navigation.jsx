@@ -17,12 +17,17 @@ const Navigation = () => {
                 <Link to="/coins" className="header-nav__link">
                     Coins
                 </Link>
-                <Link to="/portfolio" className="header-nav__link">
-                    Portfolpio
-                </Link>
-                <Link to="/add" className="header-nav__link">
-                    Add Entry
-                </Link>
+
+                {!isAuthenticated && (
+                    <>
+                        <Link to="/portfolio" className="header-nav__link">
+                            Portfolpio
+                        </Link>
+                        <Link to="/add" className="header-nav__link">
+                            Add Entry
+                        </Link>
+                    </>
+                )}
             </nav>
 
             {isAuthenticated && (
