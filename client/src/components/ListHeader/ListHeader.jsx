@@ -1,5 +1,5 @@
 const COINS_TITLES = [
-    "Rank #",
+    "#",
     "Name",
     "Price",
     "24H Change",
@@ -9,7 +9,7 @@ const COINS_TITLES = [
 ];
 
 const PORTFOLIO_TITLES = [
-    "Entry #",
+    "#",
     "Name",
     "Price",
     "Change",
