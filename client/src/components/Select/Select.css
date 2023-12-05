@@ -8,3 +8,13 @@
     border: 1px solid black;
     border-radius: 8px;
 }
+
+.form-group__select:focus,
+.form-group__select:hover {
+    outline: none;
+    border: 1px solid rgb(0, 233, 249);
+}
+
+.form-group + .form-group {
+    margin-top: 1rem;
+}
