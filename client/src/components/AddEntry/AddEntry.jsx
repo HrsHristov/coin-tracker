@@ -7,28 +7,24 @@ import AuthContext from "../../Contexts/authContext";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import Select from "../Select/Select";
-import Calendar from "../Calendar/Calendar";
 import Card from "../Card/Card";
+import Label from "../Label/Label";
 
 const AddFormKeys = {
     type: "type",
-    // CoinPick: "coinPick",
     Quantity: "quantity",
     Price: "price",
     Note: "note",
-    Date: "date",
 };
 
 const AddEntry = () => {
     const { addEntrySubmitHandler } = useContext(AuthContext);
     const [coins, setCoins] = useState([]);
     const { values, onChange, onSubmit } = useForm(addEntrySubmitHandler, {
-        [AddFormKeys.type]: "Buy",
-        // [AddFormKeys.CoinPick]: "",
+        [AddFormKeys.type]: "",
         [AddFormKeys.Quantity]: "",
         [AddFormKeys.Price]: "",
         [AddFormKeys.Note]: "",
-        [AddFormKeys.Date]: new Date().toISOString().split("T")[0],
     });
 
     useEffect(() => {
@@ -44,23 +40,27 @@ const AddEntry = () => {
                 <form id="add-entry" onSubmit={onSubmit}>
                     <h1>Add Transaction</h1>
                     <div className="form-group">
+                        <Label htmlFor="select">Type:</Label>
                         <select
                             name={AddFormKeys.type}
                             id="type"
                             onChange={onChange}
                             className="form-group__select"
                         >
-                            <option value="">Select operation type</option>
+                            <option value="">Select operation</option>
                             <option value="Buy">Buy</option>
                             <option value="Sell">Sell</option>
                         </select>
-                        <Select
-                            name="uuid"
-                            id="uuid"
-                            data={coins}
-                            onChange={onChange}
-                        />
                     </div>
+
+                    <Select
+                        labelName="Select"
+                        type="select"
+                        name="uuid"
+                        id="uuid"
+                        data={coins}
+                        onChange={onChange}
+                    />
 
                     <Input
                         labelName="Quantity"
@@ -88,19 +88,19 @@ const AddEntry = () => {
                         name={AddFormKeys.Note}
                         placeholder="Write your note here..."
                         id="note"
+                        form="add-entry"
                         value={values[AddFormKeys.Note]}
                         onChange={onChange}
                     />
 
-                    <Calendar
+                    {/* <Calendar
                         labelName="Date"
                         type="date"
                         name="calendar"
-                        placeholder="Write your note here..."
                         id="calendar"
                         value={values[AddFormKeys.Date]}
                         onChange={onChange}
-                    />
+                    /> */}
 
                     <div className="d-flex gap-4 form-group">
                         <Button primary block>

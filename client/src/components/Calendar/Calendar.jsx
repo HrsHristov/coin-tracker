@@ -1,7 +1,7 @@
 import Label from "../Label/Label";
 import "./Calendar.css";
 
-const Calendar = ({ type, name, labelName, placeholder, ...props }) => {
+const Calendar = ({ type, name, labelName, onChange, value, ...props }) => {
     return (
         <div className="form-group">
             <Label htmlFor={type}>{labelName}:</Label>
@@ -9,10 +9,9 @@ const Calendar = ({ type, name, labelName, placeholder, ...props }) => {
                 className="form-group__calendar"
                 type={type}
                 name={name}
-                placeholder={placeholder}
+                onChange={onChange}
+                // value={value}
                 {...props}
-                // onChange={onChange}
-                // value={values[LoginFormKeys.Email]}
             />
         </div>
     );
