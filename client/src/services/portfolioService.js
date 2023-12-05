@@ -1,15 +1,17 @@
 import * as request from "../lib/request";
 
-// const baseUrl = "http://localhost:3030/data/portfolio";
-const baseUrl = "http://localhost:3030/jsonstore/portfolio";
+const baseUrl = "http://localhost:3030/data/portfolio";
+// const baseUrl = "http://localhost:3030/jsonstore/portfolio";
 
-export const getAllEntries = async () => {
-    const response = await fetch(baseUrl);
-    const result = await response.json();
+export const getAllEntries = async (userId) => {
+    const query = new URLSearchParams({
+        where: `_ownerId="${userId}"`,
+        load: `owner=_ownerId:users`,
+    });
 
-    const data = Object.values(result);
+    const result = await request.get(`${baseUrl}?${query}`);
 
-    return data;
+    return result;
 };
 
 export const getOne = async (entryId) => {
