@@ -16,7 +16,10 @@ const Logout = () => {
                 logoutHandler();
                 navigate(Path.Coins);
             })
-            .catch(() => navigate(Path.Coins));
+            .catch(() => {
+                logoutHandler();
+                navigate(Path.Login);
+            });
     }, []);
 
     return null;
