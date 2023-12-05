@@ -1,5 +1,5 @@
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createContext } from "react";
 
 import Path from "../paths";
 import usePersistedState from "../lib/usePersistedState";
@@ -16,10 +16,16 @@ export const AuthProvider = ({ children }) => {
     const loginSubmitHandler = async (values) => {
         const result = await authService.login(values.email, values.password);
 
-        /* Storing the result(login) into the Auth */
-        setAuth(result);
-        localStorage.setItem("accessToken", result.accessToken);
-        navigate(Path.Coins);
+        console.log(values);
+
+        // /* Storing the result(login) into the Auth */
+        try {
+            setAuth(result);
+            localStorage.setItem("accessToken", result.accessToken);
+            navigate(Path.Coins);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const registerSubmitHandler = async (values) => {
@@ -42,6 +48,7 @@ export const AuthProvider = ({ children }) => {
         try {
             await portfolioService.create(values);
             navigate("/portfolio");
+            console.log(values.Date);
         } catch (err) {
             // Error notification
             console.log(err);
@@ -53,6 +60,7 @@ export const AuthProvider = ({ children }) => {
         registerSubmitHandler,
         logoutHandler,
         addEntrySubmitHandler,
+        userId: auth._id,
         username: auth.username || auth.email,
         email: auth.email,
         isAuthenticated: !auth.email,
