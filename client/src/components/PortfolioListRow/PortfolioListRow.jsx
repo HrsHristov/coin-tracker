@@ -81,7 +81,7 @@ const PortfolioListRow = ({
                         <div className="coin-icon">
                             <img className="img" src={iconUrl} />
                             <span>{name}</span>
-                            <span>{symbol}</span>
+                            <span>({symbol})</span>
                         </div>
                     </td>
                     <td>${formatPrice(currentPrice?.toString())}</td>
@@ -113,7 +113,7 @@ const PortfolioListRow = ({
                         <Button primary onClick={entryInfoClickHandler}>
                             Info
                         </Button>
-                        <Link to="/edit">
+                        <Link to={`/portfolio/${_id}/edit`}>
                             <Button primary>Edit</Button>
                         </Link>
                         <Button primary onClick={deleteEntryClickHandler}>
