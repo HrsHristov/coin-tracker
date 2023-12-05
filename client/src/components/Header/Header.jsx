@@ -1,4 +1,4 @@
-import reactImg from "../../assets/react-core-concepts.png";
+import reactImg from "../../assets/logo.png";
 import Navigation from "../Navigation/Navigation";
 
 import "./Header.css";
