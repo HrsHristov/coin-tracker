@@ -16,6 +16,7 @@ const PORTFOLIO_TITLES = [
     "Holdings",
     "Buy Price",
     "Profit/Loss",
+    "Type",
     "Actions",
 ];
 export default function ListHeader({ title }) {
