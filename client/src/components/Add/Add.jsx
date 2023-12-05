@@ -57,7 +57,7 @@ const Add = () => {
                     <Select
                         labelName="Select"
                         type="select"
-                        name={AddFormKeys.Quantity}
+                        name={AddFormKeys.Uuid}
                         id="uuid"
                         data={coins}
                         onChange={onChange}
