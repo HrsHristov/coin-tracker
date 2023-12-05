@@ -35,7 +35,7 @@ const CoinTableRow = ({
                         </span>
                     </div>
                 </td>
-                <td>{priceFormatted}</td>
+                <td>${priceFormatted}</td>
                 <td>
                     {change > 0 ? (
                         <div className="up">+{change}%</div>

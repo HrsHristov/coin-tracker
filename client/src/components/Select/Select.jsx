@@ -16,7 +16,7 @@ const Select = ({ data, name, id, type, labelName, onChange }) => {
                     <option
                         key={coin.name}
                         value={coin.uuid}
-                    >{`${coin.name} (${coin.symbol})`}</option>
+                    >{`${coin.name}(${coin.symbol})`}</option>
                 ))}
             </select>
         </div>
