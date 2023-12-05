@@ -3,16 +3,12 @@ import { useEffect, useState } from "react";
 
 import { formatDate } from "../../../utils/dateUtils";
 import * as portfolioAPI from "../../../services/portfolioService";
-import {
-    calculateHoldings,
-    calculatePNL,
-    calculatePNLPercentage,
-} from "../../../utils/calculationsUtils";
+import { calculateHoldings } from "../../../utils/calculationsUtils";
 
 import ModalWrapper from "../ModalWrapper";
 import Button from "../../Button/Button";
 
-const EntryInfoModal = ({ entryId, onClose }) => {
+const InfoModal = ({ entryId, onClose }) => {
     const [entryDetails, setEnetryDetails] = useState({});
 
     console.log(entryDetails);
@@ -82,4 +78,4 @@ const EntryInfoModal = ({ entryId, onClose }) => {
     );
 };
 
-export default EntryInfoModal;
+export default InfoModal;

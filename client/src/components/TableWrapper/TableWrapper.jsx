@@ -1,4 +1,4 @@
-const ListWrapper = ({ children }) => {
+const TableWrapper = ({ children }) => {
     return (
         <>
             <div className="container d-flex-column gap-4 my-5">{children}</div>
@@ -6,4 +6,4 @@ const ListWrapper = ({ children }) => {
     );
 };
 
-export default ListWrapper;
+export default TableWrapper;

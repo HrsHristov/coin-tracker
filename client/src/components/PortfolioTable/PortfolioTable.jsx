@@ -2,11 +2,11 @@ import { useState, useEffect, useContext } from "react";
 
 import * as portfolioService from "../../services/portfolioService";
 
-import ListHeader from "../ListHeader/ListHeader";
-import PortfolioListRow from "../PortfolioListRow/PortfolioListRow";
+import TableHeader from "../TableHeader/TableHeader";
+import PortfolioTableRow from "../PortfolioTableRow/PortfolioTableRow";
 import AuthContext from "../../Contexts/authContext";
 
-const PortfolioList = () => {
+const PortfolioTable = () => {
     const { userId } = useContext(AuthContext);
     const [entries, setEntries] = useState([]);
 
@@ -34,10 +34,10 @@ const PortfolioList = () => {
 
     return (
         <table>
-            <ListHeader title="portfolio" />
+            <TableHeader title="portfolio" />
 
             {entries.map((entry, index) => (
-                <PortfolioListRow
+                <PortfolioTableRow
                     key={entry._id}
                     {...entry}
                     index={index}
@@ -48,4 +48,4 @@ const PortfolioList = () => {
     );
 };
 
-export default PortfolioList;
+export default PortfolioTable;

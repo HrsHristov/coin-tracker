@@ -17,7 +17,7 @@ const AddFormKeys = {
     Note: "note",
 };
 
-const AddEntry = () => {
+const Add = () => {
     const { addEntrySubmitHandler } = useContext(AuthContext);
     const [coins, setCoins] = useState([]);
     const { values, onChange, onSubmit } = useForm(addEntrySubmitHandler, {
@@ -114,4 +114,4 @@ const AddEntry = () => {
     );
 };
 
-export default AddEntry;
+export default Add;

@@ -1,10 +1,10 @@
 import * as coinsService from "../../services/coinsService.js";
 import { useState, useEffect } from "react";
 
-import ListHeader from "../ListHeader/ListHeader";
-import CoinListRow from "../CoinListRow/CoinListRow";
+import TableHeader from "../TableHeader/TableHeader";
+import CoinTableRow from "../CoinTableRow/CoinTableRow";
 
-const CoinsList = () => {
+const CoinsTable = () => {
     const [coins, setCoins] = useState([]);
 
     useEffect(() => {
@@ -17,10 +17,10 @@ const CoinsList = () => {
     return (
         <table>
             <thead>
-                <ListHeader title="coins" />
+                <TableHeader title="coins" />
             </thead>
             {coins.map((coin) => (
-                <CoinListRow
+                <CoinTableRow
                     key={coin.rank}
                     {...coin}
                     volume={coin["24hVolume"]}
@@ -30,4 +30,4 @@ const CoinsList = () => {
     );
 };
 
-export default CoinsList;
+export default CoinsTable;

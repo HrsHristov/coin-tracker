@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { formatNumber, formatPrice } from "../../utils/formatUtils";
+import { formatPrice } from "../../utils/formatUtils";
 import * as coinsService from "../../services/coinsService";
 import {
     calculateHoldings,
@@ -8,8 +8,8 @@ import {
     calculatePNLPercentage,
 } from "../../utils/calculationsUtils";
 
-import DeleteEntryModal from "../Modals/DeleteEntryModal/DeleteEntryModal";
-import EntryInfoModal from "../Modals/EntryInfoModal/EntryInfoModal";
+import DeleteModal from "../Modals/DeleteModal/DeleteModal";
+import InfoModal from "../Modals/InfoModal/InfoModal";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 
@@ -60,14 +60,11 @@ const PortfolioListRow = ({
     return (
         <>
             {showInfo && (
-                <EntryInfoModal
-                    onClose={() => setShowInfo(false)}
-                    entryId={_id}
-                />
+                <InfoModal onClose={() => setShowInfo(false)} entryId={_id} />
             )}
 
             {showDelete && (
-                <DeleteEntryModal
+                <DeleteModal
                     onClose={() => setShowDelete(false)}
                     onDelete={() => handleEntries(_id)}
                 />

@@ -5,7 +5,7 @@ import { formatNumber, formatPrice } from "../../utils/formatUtils";
 import Button from "../Button/Button";
 import Path from "../../paths";
 
-const CoinListRow = ({
+const CoinTableRow = ({
     rank,
     iconUrl,
     name,
@@ -55,4 +55,4 @@ const CoinListRow = ({
     );
 };
 
-export default CoinListRow;
+export default CoinTableRow;

@@ -19,7 +19,7 @@ const PORTFOLIO_TITLES = [
     "Type",
     "Actions",
 ];
-export default function ListHeader({ title }) {
+const TableHeader = ({ title }) => {
     let header;
 
     if (title === "coins") {
@@ -40,4 +40,6 @@ export default function ListHeader({ title }) {
         );
     }
     return header;
-}
+};
+
+export default TableHeader;

@@ -5,7 +5,7 @@ import * as coinsService from "../../services/coinsService";
 import { formatNumber, formatPrice } from "../../utils/formatUtils";
 
 import Card from "../Card/Card";
-import ListWrapper from "../ListWrapper/ListWrapper";
+import TableWrapper from "../TableWrapper/TableWrapper";
 
 const CoinDetails = () => {
     const [coinInfo, setCoinInfo] = useState(null);
@@ -38,15 +38,12 @@ const CoinDetails = () => {
     );
 
     return (
-        <ListWrapper>
-            {/* Chart section */}
-
+        <>
+            {/* <TableWrapper> */}
             <div className="row">
                 <div className="col-4">
                     <Card>
-                        {/* "Header" section with Logo, Name, Price */}
                         <header className="mb-4">
-                            {/* bitcoin logo infront of the name */}
                             <div className="coin-icon row mb-4">
                                 <div className="col-6 flex items-center">
                                     <img className="thumbnail" src={iconUrl} />
@@ -63,10 +60,7 @@ const CoinDetails = () => {
 
                             <p>{description}</p>
                         </header>
-
-                        {/* Section with  with recent price movements*/}
                         <main>
-                            {/* Section for general coin info */}
                             <table>
                                 <tr>
                                     <td>Volume 24h</td>
@@ -118,7 +112,8 @@ const CoinDetails = () => {
                     <Card>Chart</Card>
                 </div>
             </div>
-        </ListWrapper>
+            {/* </TableWrapper> */}
+        </>
     );
 };
 
