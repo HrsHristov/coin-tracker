@@ -21,7 +21,7 @@ const Navigation = () => {
                 {!isAuthenticated && (
                     <>
                         <Link to="/portfolio" className="header-nav__link">
-                            Portfolpio
+                            Portfolio
                         </Link>
                         <Link to="/add" className="header-nav__link">
                             Add Entry
