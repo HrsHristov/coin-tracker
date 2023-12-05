@@ -11,7 +11,7 @@ import Calendar from "../Calendar/Calendar";
 import Card from "../Card/Card";
 
 const AddFormKeys = {
-    TxType: "txType",
+    type: "type",
     // CoinPick: "coinPick",
     Quantity: "quantity",
     Price: "price",
@@ -23,7 +23,7 @@ const AddEntry = () => {
     const { addEntrySubmitHandler } = useContext(AuthContext);
     const [coins, setCoins] = useState([]);
     const { values, onChange, onSubmit } = useForm(addEntrySubmitHandler, {
-        [AddFormKeys.TxType]: "buy",
+        [AddFormKeys.type]: "Buy",
         // [AddFormKeys.CoinPick]: "",
         [AddFormKeys.Quantity]: "",
         [AddFormKeys.Price]: "",
@@ -45,14 +45,14 @@ const AddEntry = () => {
                     <h1>Add Transaction</h1>
                     <div className="form-group">
                         <select
-                            name={AddFormKeys.TxType}
-                            id="txType"
+                            name={AddFormKeys.type}
+                            id="type"
                             onChange={onChange}
                             className="form-group__select"
                         >
                             <option value="">Select operation type</option>
-                            <option value="buy">Buy</option>
-                            <option value="sell">Sell</option>
+                            <option value="Buy">Buy</option>
+                            <option value="Sell">Sell</option>
                         </select>
                         <Select
                             name="uuid"
