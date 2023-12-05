@@ -24,6 +24,14 @@ const PortfolioList = () => {
         setEntries((state) => state.filter((entry) => entry._id !== _id));
     };
 
+    if (entries.length === 0) {
+        return (
+            <>
+                <h1 style={{ textAlign: "center" }}>No entries!</h1>
+            </>
+        );
+    }
+
     return (
         <table>
             <ListHeader title="portfolio" />
