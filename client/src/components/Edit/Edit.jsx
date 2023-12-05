@@ -68,6 +68,7 @@ const Edit = () => {
                             id="type"
                             onChange={onChange}
                             className="form-group__select"
+                            value={entry.type}
                         >
                             <option value="">Select operation</option>
                             <option value="Buy">Buy</option>
