@@ -20,7 +20,7 @@ const CoinListRow = ({
     const priceFormatted = formatPrice(price);
     const marketCapFormatted = formatNumber(marketCap);
     const volumeFormatted = formatNumber(volume);
-    const btcPriceFormatted = Number(btcPrice).toFixed(5);
+    const btcPriceFormatted = Number(btcPrice).toFixed(8);
 
     return (
         <tbody>
