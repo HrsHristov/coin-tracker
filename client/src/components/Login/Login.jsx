@@ -16,7 +16,7 @@ const Login = () => {
     const { loginSubmitHandler } = useContext(AuthContext);
     const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
         [LoginFormKeys.Email]: "",
-        [LoginFormKeys.Passwordassword]: "",
+        [LoginFormKeys.Password]: "",
     });
 
     return (
@@ -31,8 +31,8 @@ const Login = () => {
                             name={LoginFormKeys.Email}
                             placeholder="example@gmail.com"
                             id="email"
-                            value={values[LoginFormKeys.Email]}
                             onChange={onChange}
+                            value={values[LoginFormKeys.Email]}
                         />
                     </div>
 
@@ -43,13 +43,15 @@ const Login = () => {
                             name={LoginFormKeys.Password}
                             placeholder="Enter password"
                             id="password"
-                            value={values[LoginFormKeys.Password]}
                             onChange={onChange}
+                            value={values[LoginFormKeys.Password]}
                         />
                     </div>
 
                     <div className="form-group">
-                        <Button primary>Login</Button>
+                        <Button primary block>
+                            Login
+                        </Button>
                     </div>
                 </form>
             </Card>
