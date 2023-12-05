@@ -1,4 +1,3 @@
-import cross from "../../../assets/cross.png";
 import { useEffect, useState } from "react";
 
 import { formatDate } from "../../../utils/dateUtils";
@@ -17,6 +16,9 @@ const InfoModal = ({ entryId, onClose }) => {
         portfolioAPI.getOne(entryId).then((result) => setEnetryDetails(result));
     }, [entryId]);
 
+    const createdOn = formatDate(entryDetails._createdOn);
+    const updatedOn = formatDate(entryDetails._updatedOn);
+
     return (
         <ModalWrapper title="Transaction Details">
             <table className="mb-4">
@@ -25,13 +27,7 @@ const InfoModal = ({ entryId, onClose }) => {
                         <td>
                             <strong>Type:</strong>
                         </td>
-                        <td>Buy</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Date:</strong>
-                        </td>
-                        <td>{formatDate(entryDetails.date)}</td>
+                        <td>{entryDetails.type}</td>
                     </tr>
                     <tr>
                         <td>
@@ -43,13 +39,7 @@ const InfoModal = ({ entryId, onClose }) => {
                         <td>
                             <strong>Quantity:</strong>
                         </td>
-                        <td>{`${entryDetails.quantity} ${entryDetails.symbol}`}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Fee:</strong>
-                        </td>
-                        <td>${entryDetails.fee}</td>
+                        <td>{entryDetails.quantity}</td>
                     </tr>
                     <tr>
                         <td>
@@ -68,6 +58,19 @@ const InfoModal = ({ entryId, onClose }) => {
                             <strong>Note:</strong>
                         </td>
                         <td>{entryDetails.note}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Created on:</strong>
+                        </td>
+                        <td>{createdOn}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Updated on:</strong>
+                        </td>
+                        {!updatedOn.includes("Invalid") && <td>{updatedOn}</td>}
+                        {updatedOn.includes("Invalid") && <td>-</td>}
                     </tr>
                 </tbody>
             </table>
