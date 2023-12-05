@@ -12,13 +12,16 @@ export default function usePersistedState(key, defaultValue) {
     });
 
     const setPersistedState = (value) => {
+        //we receive either a value or a function
         setState(value);
 
-        let serializedValue;
+        let serializedValue; //value in text;format object written as string
 
         if (typeof value === "function") {
+            /* if function we pass value as function with state */
             serializedValue = JSON.stringify(value(state));
         } else {
+            /* just stringify */
             serializedValue = JSON.stringify(value);
         }
 
