@@ -39,7 +39,6 @@ const CoinDetails = () => {
 
     return (
         <>
-            {/* <TableWrapper> */}
             <div className="row">
                 <div className="col-4">
                     <Card>
@@ -112,7 +111,6 @@ const CoinDetails = () => {
                     <Card>Chart</Card>
                 </div>
             </div>
-            {/* </TableWrapper> */}
         </>
     );
 };
