@@ -8,7 +8,9 @@ export const getAllEntries = async (userId) => {
         load: `owner=_ownerId:users`,
     });
 
-    const result = await request.get(`${baseUrl}?${query}`);
+    const result = await request.get(
+        `${baseUrl}?sortBy=_createdOn%20desc&${query}`
+    );
 
     return result;
 };
