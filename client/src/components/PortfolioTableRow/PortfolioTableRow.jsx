@@ -12,6 +12,8 @@ import DeleteModal from "../Modals/DeleteModal/DeleteModal";
 import InfoModal from "../Modals/InfoModal/InfoModal";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import { pathToUrl } from "../../utils/pathUtils";
+import Path from "../../paths";
 
 const PortfolioListRow = ({
     _id,
@@ -114,7 +116,7 @@ const PortfolioListRow = ({
                         >
                             Info
                         </Button>
-                        <Link to={`/portfolio/${_id}/edit`}>
+                        <Link to={pathToUrl(Path.Edit, { _id })}>
                             <Button primary margin="ml-2">
                                 Edit
                             </Button>

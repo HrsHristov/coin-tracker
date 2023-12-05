@@ -24,6 +24,7 @@ function App() {
             <main className="container container--content">
                 <Routes>
                     <Route path={Path.Coins} element={<CoinsTable />} />
+                    <Route path={Path.Details} element={<CoinDetails />} />
                     <Route path={Path.Login} element={<Login />} />
                     <Route path={Path.Register} element={<Register />} />
 
@@ -33,8 +34,7 @@ function App() {
                             element={<PortfolioTable />}
                         />
                         <Route path={Path.Add} element={<Add />} />
-                        <Route path="portfolio/:_id/edit" element={<Edit />} />
-                        <Route path="/coins/:uuid" element={<CoinDetails />} />
+                        <Route path={Path.Edit} element={<Edit />} />
                         <Route path={Path.Logout} element={<Logout />} />
                     </Route>
                 </Routes>

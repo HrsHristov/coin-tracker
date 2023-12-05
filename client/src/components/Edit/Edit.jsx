@@ -74,7 +74,6 @@ const Edit = () => {
                             <option value="Sell">Sell</option>
                         </select>
                     </div>
-                    с
                     <Input
                         labelName="Uuid"
                         type="text"
@@ -113,7 +112,7 @@ const Edit = () => {
                     />
                     <div className="d-flex gap-4 form-group">
                         <Button primary block>
-                            Add Transaction
+                            Edit Transaction
                         </Button>
                         <Button block>Cancel</Button>
                     </div>

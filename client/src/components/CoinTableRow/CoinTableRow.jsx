@@ -4,6 +4,7 @@ import { formatNumber, formatPrice } from "../../utils/formatUtils";
 
 import Button from "../Button/Button";
 import Path from "../../paths";
+import { pathToUrl } from "../../utils/pathUtils";
 
 const CoinTableRow = ({
     rank,
@@ -46,7 +47,7 @@ const CoinTableRow = ({
                 <td>${volumeFormatted}</td>
                 <td>{btcPriceFormatted}</td>
                 <td>
-                    <Link to={`${Path.Coins}/${uuid}`}>
+                    <Link to={pathToUrl(Path.Details, { uuid })}>
                         <Button primary>Details</Button>
                     </Link>
                 </td>
