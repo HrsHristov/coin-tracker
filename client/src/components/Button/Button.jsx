@@ -1,10 +1,10 @@
 import "./Button.css";
 
-const Button = ({ children, primary, block, ...props }) => {
+const Button = ({ children, primary, block, margin, ...props }) => {
     return (
         <button
             type="submit"
-            className={`button ${
+            className={`button ${margin} ${
                 primary ? "button--primary" : "button--secondary"
             } ${block && "button--block"}`}
             {...props}

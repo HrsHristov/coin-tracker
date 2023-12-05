@@ -107,11 +107,17 @@ const PortfolioListRow = ({
                     </td>
                     <td>{type}</td>
                     <td>
-                        <Button primary onClick={entryInfoClickHandler}>
+                        <Button
+                            primary
+                            margin="ml-2"
+                            onClick={entryInfoClickHandler}
+                        >
                             Info
                         </Button>
                         <Link to={`/portfolio/${_id}/edit`}>
-                            <Button primary>Edit</Button>
+                            <Button primary margin="ml-2">
+                                Edit
+                            </Button>
                         </Link>
                         <Button primary onClick={deleteEntryClickHandler}>
                             Del

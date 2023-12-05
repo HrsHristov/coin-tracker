@@ -263,6 +263,10 @@ th {
     margin-left: 1rem;
 }
 
+.ml-2 {
+    margin-right: 0.5rem;
+}
+
 .text-right {
     text-align: right;
 }
