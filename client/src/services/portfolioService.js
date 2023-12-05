@@ -28,6 +28,12 @@ export const create = async (data) => {
     return result;
 };
 
+export const edit = async (entryId, data) => {
+    const result = await request.put(`${baseUrl}/${entryId}`, data);
+
+    return result;
+};
+
 export const remove = async (entryId) => {
     const response = await fetch(`${baseUrl}/portfolio/${entryId}`, {
         method: "DELETE",
