@@ -9,7 +9,7 @@ const DeleteModal = ({ onClose, onDelete }) => {
                 <Button primary block onClick={onDelete}>
                     Delete
                 </Button>
-                <Button secondary block onClick={onClose}>
+                <Button block onClick={onClose}>
                     Cancel
                 </Button>
             </div>

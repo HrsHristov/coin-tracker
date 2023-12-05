@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import portal from "react-dom";
 
 import { formatPrice } from "../../utils/formatUtils";
 import * as coinsService from "../../services/coinsService";
@@ -61,16 +62,23 @@ const PortfolioListRow = ({
 
     return (
         <>
-            {showInfo && (
-                <InfoModal onClose={() => setShowInfo(false)} entryId={_id} />
-            )}
+            {showInfo &&
+                portal.createPortal(
+                    <InfoModal
+                        onClose={() => setShowInfo(false)}
+                        entryId={_id}
+                    />,
+                    document.getElementById("overlay-modal")
+                )}
 
-            {showDelete && (
-                <DeleteModal
-                    onClose={() => setShowDelete(false)}
-                    onDelete={() => handleEntries(_id)}
-                />
-            )}
+            {showDelete &&
+                portal.createPortal(
+                    <DeleteModal
+                        onClose={() => setShowDelete(false)}
+                        onDelete={() => handleEntries(_id)}
+                    />,
+                    document.getElementById("overlay-modal")
+                )}
 
             <tbody>
                 <tr>
