@@ -14,6 +14,7 @@ import Button from "../Button/Button";
 
 const PortfolioListRow = ({
     _id,
+    type,
     uuid,
     price,
     quantity,
@@ -43,8 +44,6 @@ const PortfolioListRow = ({
         return <div>loading....</div>;
     }
 
-    console.log(coinInfo);
-
     const iconUrl = coinInfo?.data?.coin?.iconUrl;
     const name = coinInfo?.data?.coin?.name;
     const symbol = coinInfo?.data?.coin?.symbol;
@@ -69,12 +68,13 @@ const PortfolioListRow = ({
             {showInfo && (
                 <EntryInfoModal
                     onClose={() => setShowInfo(false)}
-                    entryId={entryInfoClickHandler}
+                    entryId={_id}
                 />
             )}
             <tbody>
                 <tr>
                     <td>{++index}</td>
+
                     <td>
                         <div className="coin-icon">
                             <img className="img" src={iconUrl} />
@@ -82,7 +82,7 @@ const PortfolioListRow = ({
                             <span>{symbol}</span>
                         </div>
                     </td>
-                    <td>${formatPrice(currentPrice.toString())}</td>
+                    <td>${formatPrice(currentPrice?.toString())}</td>
                     <td>
                         {change > 0 ? (
                             <div className="up">+{priceChange}%</div>
@@ -96,7 +96,7 @@ const PortfolioListRow = ({
                             {quantity} {symbol}
                         </div>
                     </td>
-                    <td>${formatPrice(price.toString())}</td>
+                    <td>${formatPrice(price?.toString())}</td>
                     <td>
                         <div>${pnl}</div>
 
@@ -106,6 +106,7 @@ const PortfolioListRow = ({
                             <div className="down">{pnlPercent}%</div>
                         )}
                     </td>
+                    <td>{type}</td>
                     <td>
                         <Button primary onClick={entryInfoClickHandler}>
                             Info
