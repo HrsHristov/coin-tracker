@@ -19,6 +19,12 @@
     align-items: center;
 }
 
+.home {
+    font-size: auto;
+    /* font-family: Georgia, "Times New Roman", Times, serif; */
+    color: white;
+}
+
 .coin-row {
     display: flex;
     align-items: center;
