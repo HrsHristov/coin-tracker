@@ -11,6 +11,7 @@ import {
 import DeleteEntryModal from "../Modals/DeleteEntryModal/DeleteEntryModal";
 import EntryInfoModal from "../Modals/EntryInfoModal/EntryInfoModal";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const PortfolioListRow = ({
     _id,
@@ -58,6 +59,13 @@ const PortfolioListRow = ({
 
     return (
         <>
+            {showInfo && (
+                <EntryInfoModal
+                    onClose={() => setShowInfo(false)}
+                    entryId={_id}
+                />
+            )}
+
             {showDelete && (
                 <DeleteEntryModal
                     onClose={() => setShowDelete(false)}
@@ -65,12 +73,6 @@ const PortfolioListRow = ({
                 />
             )}
 
-            {showInfo && (
-                <EntryInfoModal
-                    onClose={() => setShowInfo(false)}
-                    entryId={_id}
-                />
-            )}
             <tbody>
                 <tr>
                     <td>{++index}</td>
@@ -111,7 +113,9 @@ const PortfolioListRow = ({
                         <Button primary onClick={entryInfoClickHandler}>
                             Info
                         </Button>
-                        <Button primary>Edit</Button>
+                        <Link to="/edit">
+                            <Button primary>Edit</Button>
+                        </Link>
                         <Button primary onClick={deleteEntryClickHandler}>
                             Del
                         </Button>
