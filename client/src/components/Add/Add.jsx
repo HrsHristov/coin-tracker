@@ -12,6 +12,7 @@ import Label from "../Label/Label";
 
 const AddFormKeys = {
     type: "type",
+    Uuid: "uuid",
     Quantity: "quantity",
     Price: "price",
     Note: "note",
@@ -47,7 +48,7 @@ const Add = () => {
                             onChange={onChange}
                             className="form-group__select"
                         >
-                            <option value="">Select operation</option>
+                            <option value="">Select operation...</option>
                             <option value="Buy">Buy</option>
                             <option value="Sell">Sell</option>
                         </select>
@@ -56,7 +57,7 @@ const Add = () => {
                     <Select
                         labelName="Select"
                         type="select"
-                        name="uuid"
+                        name={AddFormKeys.Quantity}
                         id="uuid"
                         data={coins}
                         onChange={onChange}
@@ -66,8 +67,8 @@ const Add = () => {
                         labelName="Quantity"
                         type="number"
                         name={AddFormKeys.Quantity}
-                        placeholder="0"
                         id="quantity"
+                        placeholder="0"
                         value={values[AddFormKeys.Quantity]}
                         onChange={onChange}
                     />
@@ -76,8 +77,8 @@ const Add = () => {
                         labelName="Price"
                         type="text"
                         name={AddFormKeys.Price}
-                        placeholder="0.00"
                         id="Price"
+                        placeholder="0.00"
                         value={values[AddFormKeys.Price]}
                         onChange={onChange}
                     />
@@ -92,15 +93,6 @@ const Add = () => {
                         value={values[AddFormKeys.Note]}
                         onChange={onChange}
                     />
-
-                    {/* <Calendar
-                        labelName="Date"
-                        type="date"
-                        name="calendar"
-                        id="calendar"
-                        value={values[AddFormKeys.Date]}
-                        onChange={onChange}
-                    /> */}
 
                     <div className="d-flex gap-4 form-group">
                         <Button primary block>
