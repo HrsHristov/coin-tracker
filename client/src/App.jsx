@@ -33,7 +33,7 @@ function App() {
                             element={<PortfolioList />}
                         />
                         <Route path={Path.Add} element={<AddEntry />} />
-                        <Route path="/edit" element={<Edit />} />
+                        <Route path="portfolio/:_id/edit" element={<Edit />} />
                         <Route path="/coins/:uuid" element={<CoinDetails />} />
                         <Route path={Path.Logout} element={<Logout />} />
                     </Route>
