@@ -5,7 +5,7 @@ import * as coinsService from "../../services/coinsService";
 import { formatNumber, formatPrice } from "../../utils/formatUtils";
 
 import Card from "../Card/Card";
-import TableWrapper from "../TableWrapper/TableWrapper";
+import LineChart from "../LineChart/LineChart";
 
 const CoinDetails = () => {
     const [coinInfo, setCoinInfo] = useState(null);
@@ -36,6 +36,8 @@ const CoinDetails = () => {
     const fullyDilutedMarketCap = formatNumber(
         coinInfo.data.coin.fullyDilutedMarketCap
     );
+
+    var dataSet = coinInfo.data.coin.sparkline;
 
     return (
         <>
@@ -108,7 +110,9 @@ const CoinDetails = () => {
                     </Card>
                 </div>
                 <div className="col-8">
-                    <Card>Chart</Card>
+                    <Card>
+                        <LineChart dataSet={dataSet} />
+                    </Card>
                 </div>
             </div>
         </>
