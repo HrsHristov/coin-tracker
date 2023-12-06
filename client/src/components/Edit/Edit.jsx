@@ -5,7 +5,6 @@ import * as portfolioService from "../../services/portfolioService";
 
 import Button from "../Button/Button";
 import Input from "../Input/Input";
-import Select from "../Select/Select";
 import Card from "../Card/Card";
 import Label from "../Label/Label";
 import Path from "../../paths";
@@ -34,15 +33,19 @@ const Edit = () => {
             .catch((err) => console.log(err));
     }, []);
 
-    console.log(_id);
+    const onClick = () => {
+        navigate(Path.Portfolio);
+    };
 
     const editGameSubmitHandler = async (e) => {
         e.preventDefault();
 
         const values = Object.fromEntries(new FormData(e.currentTarget));
 
+        const fullValues = { ...values, uuid: entry.uuid };
+
         try {
-            await portfolioService.edit(_id, values);
+            await portfolioService.edit(_id, fullValues);
             navigate(Path.Portfolio);
         } catch (err) {
             console.log(err);
@@ -75,14 +78,7 @@ const Edit = () => {
                             <option value="Sell">Sell</option>
                         </select>
                     </div>
-                    <Input
-                        labelName="Uuid"
-                        type="text"
-                        name="uuid"
-                        id="uuid"
-                        value={entry.uuid}
-                        onChange={onChange}
-                    />
+
                     <Input
                         labelName="Quantity"
                         type="number"
@@ -115,7 +111,9 @@ const Edit = () => {
                         <Button primary block>
                             Edit Transaction
                         </Button>
-                        <Button block>Cancel</Button>
+                        <Button block onClick={onClick}>
+                            Cancel
+                        </Button>
                     </div>
                 </form>
             </Card>
