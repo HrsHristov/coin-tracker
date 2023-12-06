@@ -36,12 +36,5 @@ export const edit = async (entryId, data) => {
     return result;
 };
 
-export const remove = async (entryId) => {
-    const response = await fetch(`${baseUrl}/portfolio/${entryId}`, {
-        method: "DELETE",
-    });
-
-    const result = await response.json();
-
-    return result;
-};
+export const remove = async (entryId) =>
+    request.remove(`${baseUrl}/${entryId}`);
