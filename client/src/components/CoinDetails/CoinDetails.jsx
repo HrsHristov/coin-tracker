@@ -111,7 +111,10 @@ const CoinDetails = () => {
                 </div>
                 <div className="col-8">
                     <Card>
-                        <LineChart dataSet={dataSet} />
+                        <LineChart
+                            dataSet={dataSet}
+                            price={coinInfo.data.coin.price}
+                        />
                     </Card>
                 </div>
             </div>
