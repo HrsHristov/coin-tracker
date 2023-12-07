@@ -72,26 +72,103 @@ Make sure you have the following software installed on your machine:
 
 4. Explore the cryptocurrency tracking features:
 
-    1. Navigate to /Coins
-
-        - View a list of available cryptocurrencies.
-
-    2. Click Details on any coin
+    1. Navigate to "Coins to view a list to view a list of available cryptocurrencies.
+    2. Click Details on any coin:
         - Obtain detailed information about each cryptocurrency, including current price, market cap, and more.
         - Stay up-to-date with real-time market data.
 
-5. Register/Login to explore the Portfolio tracker
+5. Register/Login to explore the Portfolio tracker and it's capabilities
 
-    1. Navigate to /Porfolio
+    1. Navigate to "Add Transaction" to add a new transaction:
 
-        - Add Transactions
-        - Edit Transactions
-        - Delete Transactions
-        - See other relevant information
+        - Fill in the details, including the cryptocurrency, transaction type (buy/sell), quantity, and note.
+
+    2. Navigate to "Porfolio" to see all your transactions:
+        - Access a summary of your transaction history
+        - Edit or delete transactions as needed
 
 ### Folder Structure
 
-//TODO
+-   `src`
+    -   `components`
+        -   `Аdd`
+            -   `Add.jsx`
+        -   `Button`
+            -   `Button.jsx`
+            -   `Button.css`
+        -   `Card`
+            -   `Card.jsx`
+            -   `Card.css`
+        -   `CoinDetails`
+            -   `CoinDetails.jsx`
+        -   `CoinsTable`
+            -   `CoinsTable.jsx`
+        -   `CoinsTableRow`
+            -   `CoinsTable.jsx`
+        -   `Edit`
+            -   `Edit.jsx`
+        -   `Footer`
+            -   `Footer.jsx`
+            -   `Footer.css`
+        -   `guards`
+            -   `AuthGuard.jsx`
+        -   `Header`
+            -   `Header.jsx`
+            -   `Header.css`
+        -   `Input`
+            -   `Input.jsx`
+            -   `Input.css`
+        -   `Label`
+            -   `Label.jsx`
+            -   `Label.css`
+        -   `LineChart`
+            -   `LineChart.jsx`
+        -   `Login`
+            -   `Login.jsx`
+        -   `Logout`
+            -   `Logout.jsx`
+        -   `Modals`
+            -   `DeleteModal`
+                -   `DeleteModal.jsx`
+            -   `InfoModal`
+                -   `InfoModal.jsx`
+            -   `ModalWrapper.jsx`
+            -   `ModalWrapper.css`
+        -   `Navigation`
+            -   `Navigation.jsx`
+            -   `Navigation.css`
+        -   `PortfolioTable`
+            -   `PortfolioTable.jsx`
+        -   `PortfolioTableRow`
+            -   `PortfolioTableRow.jsx`
+            -   `PortfolioTableRow.css`
+        -   `Register`
+            -   `Register.jsx`
+        -   `Select`
+            -   `Select.jsx`
+            -   `Select.css`
+        -   `TableHeader`
+            -   `TableHeader.jsx`
+    -   `Contexts`
+        -   `authContext.jsx`
+    -   `hooks`
+        -   `useForm.js`
+    -   `lib`
+        -   `request.js`
+        -   `usePersistedState.js`
+    -   `services`
+        -   `authService.js`
+        -   `coinsService.js`
+        -   `portfolioService.js`
+    -   `utils`
+        -   `calculationUtils.js`
+        -   `dateUtils.js`
+        -   `formatUtils.js`
+        -   `pathUtils.js`
+    -   `App.jsx`
+    -   `main.jsx`
+    -   `paths.js`
+    -   `styles.css`
 
 ### License
 
