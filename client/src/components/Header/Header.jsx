@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import reactImg from "../../assets/logo.png";
+import reactImg from "../../assets/coin-logo-resized.svg";
 import Navigation from "../Navigation/Navigation";
 
 import "./Header.css";
