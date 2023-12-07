@@ -249,6 +249,13 @@ table {
     /* text-align: right; */
 }
 
+tr:hover {
+    border: 0.5px solid;
+    opacity: 0.9;
+    border-color: rgb(0, 233, 249);
+    background-color: rgb(13, 20, 33);
+}
+
 form > h1 {
     text-align: center;
     margin-bottom: 0.5rem;
