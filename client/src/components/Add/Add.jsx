@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 
 import useForm from "../../hooks/useForm";
 import * as coinsService from "../../services/coinsService";
-import AuthContext from "../../Contexts/authContext";
+import AuthContext from "../../contexts/authContext";
 
 import Button from "../Button/Button";
 import Input from "../Input/Input";

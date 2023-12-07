@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Path from "../paths";
@@ -11,8 +11,6 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState("auth", {});
-    // const [auth, setAuth] = useState({});
-
     const loginSubmitHandler = async (values) => {
         const result = await authService.login(values.email, values.password);
 

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import AuthContext from "../../Contexts/authContext";
+import AuthContext from "../../contexts/authContext";
 
 import Button from "../Button/Button";
 import Card from "../Card/Card";

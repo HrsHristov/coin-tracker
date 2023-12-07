@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import { AuthProvider } from "./Contexts/authContext";
+import { AuthProvider } from "./contexts/authContext";
 import Path from "./paths";
 
 import "reset-css/reset.css";

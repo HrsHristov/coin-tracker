@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
-import AuthContext from "../../Contexts/authContext";
+import AuthContext from "../../contexts/authContext";
 
 import Button from "../Button/Button";
 import "./Navigation.css";

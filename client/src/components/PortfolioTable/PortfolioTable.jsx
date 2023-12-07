@@ -4,7 +4,7 @@ import * as portfolioService from "../../services/portfolioService";
 
 import TableHeader from "../TableHeader/TableHeader";
 import PortfolioTableRow from "../PortfolioTableRow/PortfolioTableRow";
-import AuthContext from "../../Contexts/authContext";
+import AuthContext from "../../contexts/authContext";
 
 const PortfolioTable = () => {
     const { userId } = useContext(AuthContext);

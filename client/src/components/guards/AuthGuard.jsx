@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
-import AuthContext from "../../Contexts/authContext";
+import AuthContext from "../../contexts/authContext";
 import Path from "../../paths";
 
 const AuthGuard = () => {
