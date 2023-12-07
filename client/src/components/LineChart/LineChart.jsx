@@ -6,27 +6,25 @@ const LineChart = ({ dataSet }) => {
     const hour = now.getHours();
     const minutes = now.getMinutes();
 
-    console.log(dataSet);
-
     const hours = [];
 
-    for (let index = hour; index > hour - 24; index--) {
+    console.log(dataSet);
+
+    for (let index = hour; index > hour - 23; index--) {
         if (index < 0) {
-            hours.push(`${hour - index}:${minutes}`);
+            hours.push(`${24 + index}:${minutes}`);
         } else {
             hours.push(`${index}:${minutes}`);
         }
     }
 
     var data = {
-        labels: hours,
+        labels: hours.reverse(),
         datasets: [
             {
                 label: "24h Price Movement",
                 data: dataSet.map((data) => data),
                 fill: true,
-                borderJoinSttyle: "bevel",
-                tension: "0.1",
             },
         ],
     };

@@ -37,7 +37,7 @@ const CoinDetails = () => {
         coinInfo.data.coin.fullyDilutedMarketCap
     );
 
-    var dataSet = coinInfo.data.coin.sparkline;
+    const dataSet = coinInfo.data.coin.sparkline;
 
     return (
         <>
