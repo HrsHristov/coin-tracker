@@ -30,9 +30,7 @@ const CoinTableRow = ({
                 <td>
                     <div className="coin-icon">
                         <img className="img" src={iconUrl} />
-                        <span>
-                            {name} ({symbol})
-                        </span>
+                        <span>{`${name} ${symbol}`}</span>
                     </div>
                 </td>
                 <td>${priceFormatted}</td>
