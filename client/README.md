@@ -40,7 +40,7 @@ Make sure you have the following software installed on your machine:
 3. Install the dependencies
 
     ```bash
-    npm install react-number-format react-router-dom chart.js npm install react-hook-form npm install @hookform/resolvers zod
+    npm install react-number-format react-router-dom chart.js npm install react-hook-form npm install @hookform/resolvers zod reset-css
     ```
 
 ### Dependencies
