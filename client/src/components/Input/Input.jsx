@@ -1,15 +1,7 @@
 import Label from "../Label/Label";
 import "./Input.css";
 
-const Input = ({
-    type,
-    name,
-    labelName,
-    placeholder,
-    onChange,
-    value,
-    ...props
-}) => {
+const Input = ({ type, name, labelName, placeholder, data, ...props }) => {
     return (
         <div className="form-group">
             <Label htmlFor={type}>{labelName}:</Label>
@@ -18,8 +10,7 @@ const Input = ({
                 type={type}
                 name={name}
                 placeholder={placeholder}
-                onChange={onChange}
-                value={value}
+                {...data}
                 {...props}
             />
         </div>

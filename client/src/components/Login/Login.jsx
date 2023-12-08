@@ -1,62 +1,86 @@
 import { useContext } from "react";
+import { useForm, useController } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { string, z } from "zod";
 
 import AuthContext from "../../contexts/authContext";
 
 import Button from "../Button/Button";
 import Card from "../Card/Card";
 import Input from "../Input/Input";
-import useForm from "../../hooks/useForm";
+
+const schema = z.object({
+    email: string().email({ message: "Invalid email address" }),
+    password: string().min(5, {
+        message: "Password must be 5 or more characters long",
+    }),
+});
 
 const LoginFormKeys = {
     Email: "email",
     Password: "password",
 };
 
-const Login = () => {
+const LoginTest = () => {
     const { loginSubmitHandler } = useContext(AuthContext);
-    const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
-        [LoginFormKeys.Email]: "",
-        [LoginFormKeys.Password]: "",
+
+    const initialData = {
+        email: "",
+        password: "",
+    };
+
+    const { register, control, handleSubmit, formState } = useForm({
+        defaultValues: initialData,
+        resolver: zodResolver(schema),
     });
+
+    const { errors } = formState;
+
+    const { field } = useController({ name: "num", control });
+
+    const HandleSelectChange = (option) => {
+        field.onChange(option);
+    };
+
+    const onSubmit = (formValues) => {
+        loginSubmitHandler(formValues);
+        // console.log(formValues);
+    };
 
     return (
         <div className="container container--sm my-5">
             <Card>
-                <form onSubmit={onSubmit}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <h1>Login</h1>
-                    <div className="form-group">
-                        <Input
-                            labelName="Email"
-                            type="email"
-                            name={LoginFormKeys.Email}
-                            placeholder="example@gmail.com"
-                            id="email"
-                            onChange={onChange}
-                            value={values[LoginFormKeys.Email]}
-                        />
+                    <Input
+                        labelName="Email"
+                        type="email"
+                        name={LoginFormKeys.Email}
+                        placeholder="example@gmail.com"
+                        id="email"
+                        data={register("email")}
+                    />
+                    <div style={{ color: "red" }}>{errors.email?.message}</div>
+
+                    <Input
+                        labelName="Password"
+                        type="password"
+                        name={LoginFormKeys.Password}
+                        placeholder="Enter password"
+                        id="password"
+                        data={register("password")}
+                    />
+                    <div style={{ color: "red" }}>
+                        {errors.password?.message}
                     </div>
 
-                    <div className="form-group">
-                        <Input
-                            labelName="Password"
-                            type="password"
-                            name={LoginFormKeys.Password}
-                            placeholder="Enter password"
-                            id="password"
-                            onChange={onChange}
-                            value={values[LoginFormKeys.Password]}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <Button primary block>
-                            Login
-                        </Button>
-                    </div>
+                    <Button primary block>
+                        Login
+                    </Button>
                 </form>
             </Card>
         </div>
     );
 };
 
-export default Login;
+export default LoginTest;
