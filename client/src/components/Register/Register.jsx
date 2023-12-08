@@ -30,6 +30,7 @@ const Register = () => {
     const initialData = {
         email: "",
         password: "",
+        confirmPassword: "",
     };
 
     const { register, handleSubmit, formState } = useForm({
@@ -74,11 +75,11 @@ const Register = () => {
                         type="password"
                         name={RegisterFormKeys.ConfirmPassword}
                         placeholder="Enter password again"
-                        id="register-password"
-                        data={register("password")}
+                        id="confirmPassword"
+                        data={register("confirmPassword")}
                     />
                     <div style={{ color: "red" }}>
-                        {errors.password?.message}
+                        {errors.confirmPassword?.message}
                     </div>
 
                     <Button primary block>
