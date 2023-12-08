@@ -11,10 +11,10 @@ const COINS_TITLES = [
 const PORTFOLIO_TITLES = [
     "#",
     "Name",
-    "Price",
-    "Change",
+    "Current Price",
+    "24H Change",
     "Holdings",
-    "Buy Price",
+    "Avg Price",
     "Profit/Loss",
     "Type",
     "Actions",
