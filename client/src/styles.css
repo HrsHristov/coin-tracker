@@ -250,8 +250,8 @@ table {
 }
 
 tr:hover {
-    border: 0.5px solid;
-    opacity: 0.9;
+    /* border: 0.5px solid; */
+    opacity: 0.85;
     border-color: rgb(0, 233, 249);
     background-color: rgb(13, 20, 33);
 }
