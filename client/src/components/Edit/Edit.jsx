@@ -5,8 +5,9 @@ import * as portfolioService from "../../services/portfolioService";
 
 import Button from "../Button/Button";
 import Input from "../Input/Input";
-import Card from "../Card/Card";
 import Label from "../Label/Label";
+import Form from "../Form/Form";
+
 import Path from "../../paths";
 
 const EditFormKeys = {
@@ -61,62 +62,58 @@ const Edit = () => {
 
     return (
         <div className="container container--sm my-5">
-            <Card>
-                <form id="add-entry" onSubmit={editGameSubmitHandler}>
-                    <h1>Edit Transaction</h1>
-                    <div className="form-group">
-                        <Label htmlFor="select">Type:</Label>
-                        <select
-                            name={EditFormKeys.type}
-                            id="type"
-                            onChange={onChange}
-                            className="form-group__select"
-                            value={entry.type}
-                        >
-                            <option value="">Select operation</option>
-                            <option value="Buy">Buy</option>
-                            <option value="Sell">Sell</option>
-                        </select>
-                    </div>
+            <Form onSubmit={editGameSubmitHandler} title="Edit Transaction">
+                <div className="form-group">
+                    <Label htmlFor="select">Type:</Label>
+                    <select
+                        name={EditFormKeys.type}
+                        id={EditFormKeys.type}
+                        onChange={onChange}
+                        className="form-group__select"
+                        value={entry.type}
+                    >
+                        <option value="">Select operation</option>
+                        <option value="Buy">Buy</option>
+                        <option value="Sell">Sell</option>
+                    </select>
+                </div>
 
-                    <Input
-                        labelName="Quantity"
-                        type="number"
-                        name={EditFormKeys.Quantity}
-                        placeholder="0"
-                        id="quantity"
-                        value={entry.quantity}
-                        onChange={onChange}
-                    />
-                    <Input
-                        labelName="Price"
-                        type="text"
-                        name={EditFormKeys.Price}
-                        placeholder="0.00"
-                        id="Price"
-                        value={entry.price}
-                        onChange={onChange}
-                    />
-                    <Input
-                        labelName="Note"
-                        type="text"
-                        name={EditFormKeys.Note}
-                        placeholder="Write your note here..."
-                        id="note"
-                        form="add-entry"
-                        value={entry.note}
-                        onChange={onChange}
-                    />
-                    <div className="d-flex gap-4 form-group">
-                        <Button primary block>
-                            Edit Transaction
-                        </Button>
-                        <Button block onClick={onClick}>
-                            Cancel
-                        </Button>
-                    </div>
-                </form>
-            </Card>
+                <Input
+                    labelName="Quantity"
+                    type="number"
+                    name={EditFormKeys.Quantity}
+                    placeholder="0"
+                    id={EditFormKeys.Quantity}
+                    value={entry.quantity}
+                    onChange={onChange}
+                />
+                <Input
+                    labelName="Price"
+                    type="text"
+                    name={EditFormKeys.Price}
+                    placeholder="0.00"
+                    id={EditFormKeys.Price}
+                    value={entry.price}
+                    onChange={onChange}
+                />
+                <Input
+                    labelName="Note"
+                    type="text"
+                    name={EditFormKeys.Note}
+                    placeholder="Write your note here..."
+                    id={EditFormKeys.Note}
+                    value={entry.note}
+                    onChange={onChange}
+                />
+                <div className="d-flex gap-4 form-group">
+                    <Button primary block>
+                        Edit Transaction
+                    </Button>
+                    <Button block onClick={onClick}>
+                        Cancel
+                    </Button>
+                </div>
+            </Form>
         </div>
     );
 };

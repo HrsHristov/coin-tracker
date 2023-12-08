@@ -7,7 +7,7 @@ import AuthContext from "../../contexts/authContext";
 
 import Button from "../Button/Button";
 import Input from "../Input/Input";
-import Card from "../Card/Card";
+import Form from "../Form/Form";
 
 const schema = z.object({
     email: string().email({ message: "Invalid email address" }),
@@ -22,7 +22,7 @@ const schema = z.object({
 const RegisterFormKeys = {
     Email: "email",
     Password: "password",
-    ConfirmPassword: "confirm-password",
+    ConfirmPassword: "confirmPassword",
 };
 
 const Register = () => {
@@ -47,46 +47,39 @@ const Register = () => {
 
     return (
         <div className="container container--sm my-5">
-            <Card>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <h1>Register</h1>
-                    <Input
-                        labelName="Email"
-                        type="email"
-                        name={RegisterFormKeys.Email}
-                        placeholder="example@email.com"
-                        id="email"
-                        data={register("email")}
-                    />
-                    <div style={{ color: "red" }}>{errors.email?.message}</div>
-                    <Input
-                        labelName="Password"
-                        type="password"
-                        name={RegisterFormKeys.Password}
-                        placeholder="Enter password"
-                        id="register-password"
-                        data={register("password")}
-                    />
-                    <div style={{ color: "red" }}>
-                        {errors.password?.message}
-                    </div>
-                    <Input
-                        labelName="Confirm Password"
-                        type="password"
-                        name={RegisterFormKeys.ConfirmPassword}
-                        placeholder="Enter password again"
-                        id="confirmPassword"
-                        data={register("confirmPassword")}
-                    />
-                    <div style={{ color: "red" }}>
-                        {errors.confirmPassword?.message}
-                    </div>
+            <Form onSubmit={handleSubmit(onSubmit)} title="Register">
+                <Input
+                    labelName="Email"
+                    type={RegisterFormKeys.Email}
+                    name={RegisterFormKeys.Email}
+                    placeholder="example@email.com"
+                    id={RegisterFormKeys.Email}
+                    data={register(RegisterFormKeys.Email)}
+                    message={errors.email?.message}
+                />
+                <Input
+                    labelName="Password"
+                    type={RegisterFormKeys.Password}
+                    name={RegisterFormKeys.Password}
+                    placeholder="Enter password"
+                    id={RegisterFormKeys.Password}
+                    data={register(RegisterFormKeys.Password)}
+                    message={errors.password?.message}
+                />
+                <Input
+                    labelName="Confirm Password"
+                    type="password"
+                    name={RegisterFormKeys.ConfirmPassword}
+                    placeholder="Enter password again"
+                    id={RegisterFormKeys.ConfirmPassword}
+                    data={register(RegisterFormKeys.ConfirmPassword)}
+                    message={errors.confirmPassword?.message}
+                />
 
-                    <Button primary block>
-                        Register
-                    </Button>
-                </form>
-            </Card>
+                <Button primary block>
+                    Register
+                </Button>
+            </Form>
         </div>
     );
 };

@@ -6,8 +6,8 @@ import { string, z } from "zod";
 import AuthContext from "../../contexts/authContext";
 
 import Button from "../Button/Button";
-import Card from "../Card/Card";
 import Input from "../Input/Input";
+import Form from "../Form/Form";
 
 const schema = z.object({
     email: string().email({ message: "Invalid email address" }),
@@ -49,36 +49,31 @@ const LoginTest = () => {
 
     return (
         <div className="container container--sm my-5">
-            <Card>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <h1>Login</h1>
-                    <Input
-                        labelName="Email"
-                        type="email"
-                        name={LoginFormKeys.Email}
-                        placeholder="example@gmail.com"
-                        id="email"
-                        data={register("email")}
-                    />
-                    <div style={{ color: "red" }}>{errors.email?.message}</div>
+            <Form onSubmit={handleSubmit(onSubmit)} title="Login">
+                <Input
+                    labelName="Email"
+                    type={LoginFormKeys.Email}
+                    name={LoginFormKeys.Email}
+                    placeholder="example@email.com"
+                    id={LoginFormKeys.Email}
+                    data={register(LoginFormKeys.Email)}
+                    message={errors.email?.message}
+                />
 
-                    <Input
-                        labelName="Password"
-                        type="password"
-                        name={LoginFormKeys.Password}
-                        placeholder="Enter password"
-                        id="password"
-                        data={register("password")}
-                    />
-                    <div style={{ color: "red" }}>
-                        {errors.password?.message}
-                    </div>
+                <Input
+                    labelName="Password"
+                    type={LoginFormKeys.Password}
+                    name={LoginFormKeys.Password}
+                    placeholder="Enter password"
+                    id={LoginFormKeys.Password}
+                    data={register(LoginFormKeys.Password)}
+                    message={errors.password?.message}
+                />
 
-                    <Button primary block>
-                        Login
-                    </Button>
-                </form>
-            </Card>
+                <Button primary block>
+                    Login
+                </Button>
+            </Form>
         </div>
     );
 };
