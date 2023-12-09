@@ -11,12 +11,12 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState("auth", {});
+
     const loginSubmitHandler = async (values) => {
         const result = await authService.login(values.email, values.password);
 
         console.log(values);
 
-        // /* Storing the result(login) into the Auth */
         try {
             setAuth(result);
             localStorage.setItem("accessToken", result.accessToken);
@@ -48,7 +48,6 @@ export const AuthProvider = ({ children }) => {
             navigate("/portfolio");
             console.log(values.Date);
         } catch (err) {
-            // Error notification
             console.log(err);
         }
     };
